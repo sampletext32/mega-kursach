@@ -34,7 +34,7 @@
 
 <span align="center">
 <p>
-  Egor Sinitsa (<a href="https://github.com/sampletext32">Bird Egop</a>) <br/> <a href="https://vk.com/bird_egop">VK</a>, <a href="https://tele.click/bird_egop">Telegram</a>
+  Sinitsa Egor (<a href="https://github.com/sampletext32">Bird Egop</a>) <br/> <a href="https://vk.com/bird_egop">VK</a>, <a href="https://tele.click/bird_egop">Telegram</a>
 </p>
 
 <p>
