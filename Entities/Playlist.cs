@@ -11,8 +11,6 @@ namespace Entities
 
         public Playlist(int id, string title, List<int> tracksIds, int ownerId, int artId) : base(id, title)
         {
-            Id = id;
-            Title = title;
             TracksIds = tracksIds;
             OwnerId = ownerId;
             ArtId = artId;

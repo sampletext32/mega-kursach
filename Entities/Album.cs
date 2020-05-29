@@ -10,8 +10,6 @@ namespace Entities
 
         public Album(int id, string title, List<int> tracksIds, int ownerId, int artId, int year, List<string> artists) : base(id, title, tracksIds, ownerId, artId)
         {
-            Id = id;
-            Title = title;
             Year = year;
             Artists = artists;
             ArtId = artId;

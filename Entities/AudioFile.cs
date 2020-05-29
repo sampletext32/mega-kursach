@@ -10,8 +10,6 @@ namespace Entities
 
         public AudioFile(int id, string title, List<string> artists, int genreId, int artId) : base(id, title)
         {
-            Id = id;
-            Title = title;
             Artists = artists;
             GenreId = genreId;
             ArtId = artId;
