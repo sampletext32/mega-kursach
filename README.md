@@ -38,7 +38,7 @@
 </p>
 
 <p>
-  Novopashenny Maxim (<a href="https://github.com/comougi">com.og</a>) <br/> <a href="https://vk.com/bbgoldg">VK</a>, <a href="https://tele.click/goldgbb">Telegram</a>
+  Novopashennyy Maxim (<a href="https://github.com/comougi">com.og</a>) <br/> <a href="https://vk.com/bbgoldg">VK</a>, <a href="https://tele.click/goldgbb">Telegram</a>
 </p>
 </span>
 
