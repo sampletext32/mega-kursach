@@ -2,7 +2,7 @@
 
 namespace Entities
 {
-    public class AudioFile : Entity
+    public class AudioFile : TitledEntity
     {
         public List<string> Artists { get; set; }
         public int GenreId { get; set; }

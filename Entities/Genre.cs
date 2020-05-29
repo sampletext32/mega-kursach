@@ -1,11 +1,9 @@
 ﻿namespace Entities
 {
-    public class Genre : Entity
+    public class Genre : TitledEntity
     {
-        public Genre(int id, string title):base (id,title)
+        public Genre(int id, string title) : base(id, title)
         {
-            Id = id;
-            Title = title;
         }
     }
 }

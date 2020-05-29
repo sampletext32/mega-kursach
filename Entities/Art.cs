@@ -3,14 +3,12 @@ using System.Net.Mime;
 
 namespace Entities
 {
-    public class Art
+    public class Art : AuditableEntity
     {
-        public int Id { get; set; }
         public string PicPath { get; set; }
 
-        public Art(int id, string picPath)
+        public Art(int id, string picPath) : base(id)
         {
-            Id = id;
             PicPath = picPath;
         }
     }
