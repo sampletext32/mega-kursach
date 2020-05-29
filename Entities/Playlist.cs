@@ -9,7 +9,7 @@ namespace Entities
         public int ArtId { get; set; }
 
 
-        public Playlist(int id, string title, List<int> tracksIds, int ownerId, int artId)
+        public Playlist(int id, string title, List<int> tracksIds, int ownerId, int artId) : base(id, title)
         {
             Id = id;
             Title = Title;
