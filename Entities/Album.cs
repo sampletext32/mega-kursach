@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 
 namespace Entities
@@ -8,7 +10,8 @@ namespace Entities
         public int Year { get; set; }
         public ICollection<int> ArtistsId { get; set; }
 
-        public Album(int id, string title, ICollection<int> tracksIds, int ownerId, int artId, int year, ICollection<int> artistsId) : base(id, title, tracksIds, ownerId, artId)
+        public Album(int id, string title, ICollection<int> tracksIds, int ownerId, int artId, int year,
+            ICollection<int> artistsId) : base(id, title, tracksIds, ownerId, artId)
         {
             Year = year;
             ArtistsId = artistsId;

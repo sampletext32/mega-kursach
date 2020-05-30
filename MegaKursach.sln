@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAsp", "WebAsp\WebAsp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{5ACD8F28-2AFF-40F5-8385-2E5FC8C7D1BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastucture", "Infrastucture\Infrastucture.csproj", "{2FD3245B-BE2B-4214-8EB7-A4DEFACD6B5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5ACD8F28-2AFF-40F5-8385-2E5FC8C7D1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ACD8F28-2AFF-40F5-8385-2E5FC8C7D1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ACD8F28-2AFF-40F5-8385-2E5FC8C7D1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD3245B-BE2B-4214-8EB7-A4DEFACD6B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD3245B-BE2B-4214-8EB7-A4DEFACD6B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD3245B-BE2B-4214-8EB7-A4DEFACD6B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD3245B-BE2B-4214-8EB7-A4DEFACD6B5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

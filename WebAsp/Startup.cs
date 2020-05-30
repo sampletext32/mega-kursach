@@ -36,10 +36,10 @@ namespace WebAsp
                 app.UseDeveloperExceptionPage();
             }
 
-            //Äëÿ ïðÿìîãî äîñòóïà ê ôàéëàì
+            //Ð”Ð»Ñ Ð¿Ñ€ÑÐ¼Ð¾Ð³Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº Ñ„Ð°Ð¹Ð»Ð°Ð¼
             app.UseFileServer();
 
-            // îáðàáîòêà îøèáîê HTTP
+            // Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð¾ÑˆÐ¸Ð±Ð¾Ðº HTTP
             app.UseStatusCodePages();
 
             app.UseHttpsRedirection();
@@ -48,10 +48,7 @@ namespace WebAsp
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
