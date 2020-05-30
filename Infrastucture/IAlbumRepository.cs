@@ -12,7 +12,7 @@ namespace Infrastucture
         void Remove(Album album);
 
         IReadOnlyList<Album> GetAlbumsByYear(int year);
-        IReadOnlyList<Album> GetAlbumsByArtist(int artistId);
+        IReadOnlyList<Album> GetAlbumsByArtist(Artist artist);
         IReadOnlyList<Album> GetAlbumsByTitle(string title);
         IReadOnlyList<Album> GetAllAlbums();
     }

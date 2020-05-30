@@ -12,15 +12,10 @@ namespace Infrastucture
         {
             _dbContext = dbContext;
         }
-
-        public IReadOnlyList<Artist> GetArtists()
+        
+        public IReadOnlyList<Artist> GetAllArtists()
         {
             return _dbContext.Artists.ToList();
-        }
-
-        public IReadOnlyList<Artist> GetArtistsByAlbum(int albumId)
-        {
-            return _dbContext.Artists.Where(x => x.AlbumId.Equals(albumId)).ToList();
         }
     }
 }

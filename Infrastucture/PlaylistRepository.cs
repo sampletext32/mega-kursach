@@ -14,9 +14,9 @@ namespace Infrustucture
             _dbContext = dbContext;
         }
 
-        public IReadOnlyList<Playlist> GetPlaylistByOwner(int ownerId)
+        public IReadOnlyList<Playlist> GetPlaylistByOwner(User owner)
         {
-            return _dbContext.Playlists.Where(x => x.OwnerId.Equals(ownerId)).ToList();
+            return _dbContext.Playlists.Where(x => x.Owner.Equals(owner)).ToList();
         }
 
         public IReadOnlyList<Playlist> GetPlaylists()
@@ -26,7 +26,7 @@ namespace Infrustucture
 
         public IReadOnlyList<Playlist> GetPlaylistsByTitle(string title)
         {
-            return _dbContext.Playlists.Where(x => x.Title.Contains(title)).ToList();
+            return _dbContext.Playlists.Where(x => x.Title.Equals(title)).ToList();
         }
     }
 }

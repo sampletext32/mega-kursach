@@ -13,20 +13,19 @@ namespace Infrastucture
             _dbContext = dbContext;
         }
 
-
         public IReadOnlyList<Album> GetAlbumsByYear(int year)
         {
             return _dbContext.Albums.Where(x => x.Year.Equals(year)).ToList();
         }
 
-        public IReadOnlyList<Album> GetAlbumsByArtist(int artistId)
+        public IReadOnlyList<Album> GetAlbumsByArtist(Artist artist)
         {
-            return _dbContext.Albums.Where(x => x.ArtistsId.Equals(artistId)).ToList();
+            return _dbContext.Albums.Where(x => x.MainArtists.Contains(artist)).ToList();
         }
 
         public IReadOnlyList<Album> GetAlbumsByTitle(string title)
         {
-            return _dbContext.Albums.Where(x => x.Title.Contains(title)).ToList();
+            return _dbContext.Albums.Where(x => x.Title.Equals(title)).ToList();
         }
 
         public IReadOnlyList<Album> GetAllAlbums()

@@ -8,11 +8,15 @@ namespace Infrastucture
         Playlist Get(int id);
 
         void Add(Playlist playlist);
+
         void Update(Playlist playlist);
+
         void Remove(Playlist playlist);
 
-        IReadOnlyList<Playlist> GetPlaylistByOwner(int ownerId);
+        IReadOnlyList<Playlist> GetPlaylistByOwner(User owner);
+
         IReadOnlyList<Playlist> GetPlaylists();
+
         IReadOnlyList<Playlist> GetPlaylistsByTitle(string title);
     }
 }

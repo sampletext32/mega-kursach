@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Entities;
+﻿using Entities;
 
 namespace Infrastucture
 {
@@ -8,7 +7,9 @@ namespace Infrastucture
         Art Get(int id);
 
         void Add(Art art);
+
         void Update(Art art);
+
         void Remove(Art art);
     }
 }

@@ -11,7 +11,6 @@ namespace Infrastucture
         void Update(Artist artist);
         void Remove(Artist artist);
 
-        IReadOnlyList<Artist> GetArtists();
-        IReadOnlyList<Artist> GetArtistsByAlbum(int albumId);
+        IReadOnlyList<Artist> GetAllArtists();
     }
 }

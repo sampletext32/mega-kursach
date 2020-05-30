@@ -13,14 +13,14 @@ namespace Infrastucture
             _dbContext = dbContext;
         }
 
-        public IReadOnlyList<Track> GetTracksByArtist(ICollection<int> artistsId)
+        public IReadOnlyList<Track> GetTracksByArtist(Artist artist)
         {
-            return _dbContext.Tracks.Where(x => x.ArtistsIds.Equals(artistsId)).ToList();
+            return _dbContext.Tracks.Where(x => x.Artists.Contains(artist)).ToList();
         }
 
-        public IReadOnlyList<Track> GetTracksByGenre(int genreId)
+        public IReadOnlyList<Track> GetTracksByGenre(Genre genre)
         {
-            return _dbContext.Tracks.Where(x => x.GenreId.Equals(genreId)).ToList();
+            return _dbContext.Tracks.Where(x => x.Genre.Equals(genre)).ToList();
         }
 
         public IReadOnlyList<Track> GetTracksByExplicit(bool @explicit)
@@ -38,9 +38,9 @@ namespace Infrastucture
             return _dbContext.Tracks.ToList();
         }
 
-        public IReadOnlyList<Track> GetTracksByAlbum(int albumId)
-        {
-            return _dbContext.Tracks.Where(x => x.AlbumId.Equals(albumId)).ToList();
-        }
+        //public IReadOnlyList<Track> GetTracksByAlbum(Album album)
+        //{
+        //    return _dbContext.Tracks.Where(x => x.A.Equals(album)).ToList();
+        //}
     }
 }
