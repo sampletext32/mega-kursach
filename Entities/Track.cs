@@ -16,20 +16,21 @@ namespace Entities
 
         //public int AlbumId { get; set; }
 
-        public Track(int id, string title, ICollection<Artist> artists, Genre genre, Art art, bool @explicit, 
-            /*Album album*/) :
+        public Album Album { get; set; }
+
+        public Track(int id, string title, ICollection<Artist> artists, Genre genre, Art art, bool @explicit,
+            Album album) :
             base(id, title)
         {
             Explicit = @explicit;
             Artists = artists;
             Genre = genre;
             Art = art;
-            //Album = album;
+            Album = album;
         }
 
         public Track()
         {
-            
         }
     }
 }
