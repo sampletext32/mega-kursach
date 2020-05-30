@@ -16,5 +16,9 @@ namespace Entities
             DistributionAlbums = distributionAlbums;
             DistributionTracks = distributionTracks;
         }
+
+        public Distributor()
+        {
+        }
     }
 }
