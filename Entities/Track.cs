@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Entities
 {
@@ -22,11 +23,19 @@ namespace Entities
         //[NotMapped]
         //public Art Art => null;
 
-        public Track(int id, string title, ICollection<int> artistsIds, int genreId, int artId) : base(id, title)
+
+        public bool Explicit { get; set; }
+        public int AlbumId { get; set; }
+
+        public Track(int id, string title, ICollection<int> artistsIds, int genreId, int artId, bool @explicit,
+            int albumId) :
+            base(id, title)
         {
+            Explicit = @explicit;
             ArtistsIds = artistsIds;
             GenreId = genreId;
             ArtId = artId;
+            AlbumId = albumId;
         }
     }
 }
