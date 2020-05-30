@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using System.Collections.Generic;
+using Entities;
 
 namespace Infrastucture
 {
@@ -9,6 +10,9 @@ namespace Infrastucture
         void Add(Playlist playlist);
         void Update(Playlist playlist);
         void Remove(Playlist playlist);
-        
+
+        IReadOnlyList<Playlist> GetPlaylistByOwner(int ownerId);
+        IReadOnlyList<Playlist> GetPlaylists();
+        IReadOnlyList<Playlist> GetPlaylistsByTitle(string title);
     }
 }
