@@ -32,5 +32,10 @@ namespace Infrastucture
         {
             return _dbContext.Albums.ToList();
         }
+
+        public IReadOnlyList<Album> GetArtists(ICollection<Artist> mainArtists)
+        {
+            return _dbContext.Albums.Where(x => x.MainArtists.Equals(mainArtists)).ToList();
+        }
     }
 }
