@@ -14,7 +14,16 @@ namespace Entities
 
     public class User : TitledEntity
     {
-        public User(int id, string title) : base(id, title)
+        private string Password { get; set; }
+        private string Email { get; set; }
+
+        public User(int id, string title, string password, string email) : base(id, title)
+        {
+            Password = password;
+            Email = email;
+        }
+
+        public User()
         {
         }
     }
