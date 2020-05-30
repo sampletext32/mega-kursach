@@ -5,7 +5,9 @@ namespace Entities
     public class Distributor : User
     {
         public ICollection<Artist> DistributionArtists { get; set; }
+
         public ICollection<Album> DistributionAlbums { get; set; }
+
         public ICollection<Track> DistributionTracks { get; set; }
 
         public Distributor(int id, string title, string password, string email, ICollection<Artist> distributionArtists,

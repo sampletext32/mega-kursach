@@ -7,7 +7,9 @@ namespace Entities
     public class Artist : Client
     {
         public string Bio { get; set; }
+
         public ICollection<Album> ArtistAlbums { get; set; }
+
         public ICollection<Track> ArtistTracks { get; set; }
 
         public Artist(int id, string title, string password, string email, string firstName, string lastName,

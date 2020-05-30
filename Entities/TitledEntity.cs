@@ -13,7 +13,6 @@ namespace Entities
 
         public TitledEntity()
         {
-            
         }
     }
 }
