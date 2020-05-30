@@ -6,8 +6,11 @@ namespace Entities
 {
     public class Artist : TitledEntity
     {
-        public Artist(int id, string title) : base(id, title)
+        public ICollection<int> AlbumId { get; set; }
+
+        public Artist(int id, string title, ICollection<int> albumId) : base(id, title)
         {
+            AlbumId = albumId;
         }
     }
 }
