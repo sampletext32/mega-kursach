@@ -11,9 +11,11 @@ namespace Entities
 
         public ICollection<Artist> MainArtists { get; set; }
 
-        public Album(int id, string title, ICollection<Track> tracks, User owner, Art art, int year,
-            ICollection<Artist> mainArtists) : base(id, title, tracks, owner, art)
+        public Distributor Distributor;
+        
+        public Album(int id, string title, ICollection<Track> tracks, User owner, Art art, Distributor distributor, int year, ICollection<Artist> mainArtists) : base(id, title, tracks, owner, art)
         {
+            Distributor = distributor;
             Year = year;
             MainArtists = mainArtists;
         }
