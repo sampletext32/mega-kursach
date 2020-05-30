@@ -33,9 +33,9 @@ namespace Infrastucture
             return _dbContext.Albums.ToList();
         }
 
-        public IReadOnlyList<Album> GetArtists(ICollection<Artist> mainArtists)
+        public IReadOnlyList<Album> GetAlbumsByDistributor(Distributor distributor)
         {
-            return _dbContext.Albums.Where(x => x.MainArtists.Equals(mainArtists)).ToList();
+            return _dbContext.Albums.Where(x => x.Distributor.Equals(distributor)).ToList();
         }
     }
 }

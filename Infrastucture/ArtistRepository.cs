@@ -18,14 +18,14 @@ namespace Infrastucture
             return _dbContext.Artists.ToList();
         }
 
-        public IReadOnlyList<Artist> GetArtistAlbums(ICollection<Album> artistAlbums)
+        public IReadOnlyList<Artist> GetArtistsByAlbum(Album album)
         {
-            return _dbContext.Artists.Where(x => x.ArtistAlbums.Equals(artistAlbums)).ToList();
+            return _dbContext.Artists.Where(x => album.MainArtists.Contains(x)).ToList();
         }
 
-        public IReadOnlyList<Artist> GetArtistTracks(ICollection<Track> artistTracks)
+        public IReadOnlyList<Artist> GetArtistsByDistributor(Distributor distributor)
         {
-            return _dbContext.Artists.Where(x => x.ArtistTracks.Equals(artistTracks)).ToList();
+            return null;
         }
     }
 }

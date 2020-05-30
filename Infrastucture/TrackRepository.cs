@@ -37,10 +37,5 @@ namespace Infrastucture
         {
             return _dbContext.Tracks.ToList();
         }
-
-        //public IReadOnlyList<Track> GetTracksByAlbum(Album album)
-        //{
-        //    return _dbContext.Tracks.Where(x => x.A.Equals(album)).ToList();
-        //}
     }
 }

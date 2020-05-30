@@ -10,9 +10,6 @@ namespace Infrastucture
         void Add(Distributor distributor);
         void Update(Distributor distributor);
         void Remove(Distributor distributor);
-
-        IReadOnlyList<Distributor> GetDistributionAlbums(ICollection<Album> distributionAlbums);
-        IReadOnlyList<Distributor> GetDistributionArtists(ICollection<Artist> distributionArtists);
-        IReadOnlyList<Distributor> GetDistributionTracks(ICollection<Track> distributionTracks);
+        
     }
 }

@@ -12,7 +12,7 @@ namespace Infrastucture
         void Remove(Artist artist);
 
         IReadOnlyList<Artist> GetAllArtists();
-        IReadOnlyList<Artist> GetArtistAlbums(ICollection<Album> artistAlbums);
-        IReadOnlyList<Artist> GetArtistTracks(ICollection<Track> artistTracks);
+        IReadOnlyList<Artist> GetArtistsByAlbum(Album album);
+        IReadOnlyList<Artist> GetArtistsByDistributor(Distributor distributor);
     }
 }

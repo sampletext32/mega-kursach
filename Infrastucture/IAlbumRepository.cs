@@ -15,6 +15,7 @@ namespace Infrastucture
         IReadOnlyList<Album> GetAlbumsByArtist(Artist artist);
         IReadOnlyList<Album> GetAlbumsByTitle(string title);
         IReadOnlyList<Album> GetAllAlbums();
-        IReadOnlyList<Album> GetArtists(ICollection<Artist> mainArtists);
+
+        IReadOnlyList<Album> GetAlbumsByDistributor(Distributor distributor);
     }
 }
