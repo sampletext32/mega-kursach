@@ -4,13 +4,10 @@ using System.Text;
 
 namespace Entities
 {
-    public class Artist : TitledEntity
+    public class Artist : User
     {
-        public ICollection<int> AlbumId { get; set; }
-
-        public Artist(int id, string title, ICollection<int> albumId) : base(id, title)
+        public Artist(int id, string title) : base(id, title)
         {
-            AlbumId = albumId;
         }
     }
 }

@@ -8,13 +8,14 @@ namespace Entities
     public class Album : Playlist
     {
         public int Year { get; set; }
-        public ICollection<int> ArtistsId { get; set; }
 
-        public Album(int id, string title, ICollection<int> tracksIds, int ownerId, int artId, int year,
-            ICollection<int> artistsId) : base(id, title, tracksIds, ownerId, artId)
+        public ICollection<Artist> MainArtists { get; set; }
+
+        public Album(int id, string title, ICollection<Track> tracks, User owner, Art art, int year,
+            ICollection<Artist> mainArtists) : base(id, title, tracks, owner, art)
         {
             Year = year;
-            ArtistsId = artistsId;
+            MainArtists = mainArtists;
         }
     }
 }

@@ -12,5 +12,10 @@ namespace Entities
         {
             Id = id;
         }
+
+        public AuditableEntity()
+        {
+            
+        }
     }
 }

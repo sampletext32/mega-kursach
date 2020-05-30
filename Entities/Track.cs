@@ -6,37 +6,30 @@ namespace Entities
 {
     public class Track : TitledEntity
     {
-        public ICollection<int> ArtistsIds { get; set; }
+        public ICollection<Artist> Artists { get; set; }
 
-        //Данное поле не будет хранится в БД
-        [NotMapped]
-        public ICollection<Artist> Artists;
+        public Genre Genre { get; set; }
 
-        public int GenreId { get; set; }
-
-        //Данное поле не будет хранится в БД
-        [NotMapped]
-        public Genre Genre;
-
-        public int ArtId { get; set; }
-
-        //Данное поле не будет хранится в БД
-        [NotMapped]
-        public Art Art;
-
+        public Art Art { get; set; }
 
         public bool Explicit { get; set; }
-        public int AlbumId { get; set; }
 
-        public Track(int id, string title, ICollection<int> artistsIds, int genreId, int artId, bool @explicit,
-            int albumId) :
+        //public int AlbumId { get; set; }
+
+        public Track(int id, string title, ICollection<Artist> artists, Genre genre, Art art, bool @explicit, 
+            /*Album album*/) :
             base(id, title)
         {
             Explicit = @explicit;
-            ArtistsIds = artistsIds;
-            GenreId = genreId;
-            ArtId = artId;
-            AlbumId = albumId;
+            Artists = artists;
+            Genre = genre;
+            Art = art;
+            //Album = album;
+        }
+
+        public Track()
+        {
+            
         }
     }
 }

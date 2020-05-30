@@ -6,29 +6,21 @@ namespace Entities
 {
     public class Playlist : TitledEntity
     {
-        public ICollection<int> TracksIds { get; set; }
+        public ICollection<Track> Tracks { get; set; }
 
-        //Данное поле не будет хранится в БД
-        [NotMapped]
-        public ICollection<Track> Tracks;
+        public User Owner { get; set; }
 
-        public int OwnerId { get; set; }
+        public Art Art { get; set; }
 
-        //Данное поле не будет хранится в БД
-        [NotMapped]
-        public User Owner;
-
-        public int ArtId { get; set; }
-
-        //Данное поле не будет хранится в БД
-        [NotMapped]
-        public Art Art;
-
-        public Playlist(int id, string title, ICollection<int> tracksIds, int ownerId, int artId) : base(id, title)
+        public Playlist(int id, string title, ICollection<Track> tracks, User owner, Art art) : base(id, title)
         {
-            TracksIds = tracksIds;
-            OwnerId = ownerId;
-            ArtId = artId;
+            Tracks = tracks;
+            Owner = owner;
+            Art = art;
+        }
+
+        public Playlist()
+        {
         }
     }
 }

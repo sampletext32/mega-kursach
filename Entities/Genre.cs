@@ -5,5 +5,10 @@
         public Genre(int id, string title) : base(id, title)
         {
         }
+
+        public Genre()
+        {
+            
+        }
     }
 }
