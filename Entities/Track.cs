@@ -14,8 +14,6 @@ namespace Entities
 
         public bool Explicit { get; set; }
 
-        //public int AlbumId { get; set; }
-
         public Album Album { get; set; }
 
         public Track(int id, string title, ICollection<Artist> artists, Genre genre, Art art, bool @explicit,
