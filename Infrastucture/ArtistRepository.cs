@@ -18,7 +18,7 @@ namespace Infrastucture
             return _dbContext.Artists.ToList();
         }
 
-        public IReadOnlyList<Artist> GetArtistsByAlbum(ICollection<int> albumId)
+        public IReadOnlyList<Artist> GetArtistsByAlbum(int albumId)
         {
             return _dbContext.Artists.Where(x => x.AlbumId.Equals(albumId)).ToList();
         }

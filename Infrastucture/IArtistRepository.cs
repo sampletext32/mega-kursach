@@ -11,6 +11,6 @@ namespace Infrastucture
         void Update(Artist artist);
 
         IReadOnlyList<Artist> GetArtists();
-        IReadOnlyList<Artist> GetArtistsByAlbum(ICollection<int> albumId);
+        IReadOnlyList<Artist> GetArtistsByAlbum(int albumId);
     }
 }
