@@ -25,7 +25,10 @@ namespace Infrastucture
 
         public IReadOnlyList<Artist> GetArtistsByDistributor(Distributor distributor)
         {
-            return null;
+            return _dbContext.Artists.Where(a =>
+                    new AlbumRepository(_dbContext).GetAlbumsByDistributor(distributor)
+                        .Any(t => t.MainArtists.Contains(a)))
+                .ToList();
         }
     }
 }
