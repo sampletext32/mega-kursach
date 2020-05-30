@@ -8,7 +8,7 @@ namespace Infrastucture
 
         void Add(Playlist playlist);
         void Update(Playlist playlist);
-        void Delete(Playlist playlist);
+        void Remove(Playlist playlist);
         
     }
 }

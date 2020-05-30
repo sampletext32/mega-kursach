@@ -9,6 +9,6 @@ namespace Infrastucture
 
         void Add(Art art);
         void Update(Art art);
-        void Delete(Art art);
+        void Remove(Art art);
     }
 }

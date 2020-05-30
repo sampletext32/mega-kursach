@@ -13,6 +13,7 @@ namespace Infrastucture
             _dbContext = dbContext;
         }
 
+
         public IReadOnlyList<Album> GetAlbumsByYear(int year)
         {
             return _dbContext.Albums.Where(x => x.Year.Equals(year)).ToList();
