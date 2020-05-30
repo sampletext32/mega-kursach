@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
@@ -8,20 +9,20 @@ namespace Entities
         public ICollection<int> ArtistsIds { get; set; }
 
         //Данное поле не будет хранится в БД
-        //[NotMapped]
-        //public ICollection<Artist> Artists => null;
+        [NotMapped]
+        public ICollection<Artist> Artists;
 
         public int GenreId { get; set; }
 
         //Данное поле не будет хранится в БД
-        //[NotMapped]
-        //public Genre Genre => null;
+        [NotMapped]
+        public Genre Genre;
 
         public int ArtId { get; set; }
 
         //Данное поле не будет хранится в БД
-        //[NotMapped]
-        //public Art Art => null;
+        [NotMapped]
+        public Art Art;
 
 
         public bool Explicit { get; set; }
