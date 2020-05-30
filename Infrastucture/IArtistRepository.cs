@@ -9,6 +9,7 @@ namespace Infrastucture
 
         void Add(Artist artist);
         void Update(Artist artist);
+        void Delete(Artist artist);
 
         IReadOnlyList<Artist> GetArtists();
         IReadOnlyList<Artist> GetArtistsByAlbum(int albumId);
