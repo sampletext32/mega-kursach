@@ -12,8 +12,8 @@ namespace Entities
 
         public DateTime Birthdate { get; set; }
 
-        public Client(int id, string title, string password, string email, string firstName, string lastName,
-            string middleName, DateTime birthdate) : base(id, title, password, email)
+        public Client(int id, string nickname, string password, string email, string firstName, string lastName,
+            string middleName, DateTime birthdate) : base(id, nickname, password, email)
         {
             FirstName = firstName;
             LastName = lastName;

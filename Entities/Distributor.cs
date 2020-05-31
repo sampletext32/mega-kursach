@@ -4,19 +4,9 @@ namespace Entities
 {
     public class Distributor : User
     {
-        public ICollection<Artist> DistributionArtists { get; set; }
-
-        public ICollection<Album> DistributionAlbums { get; set; }
-
-        public ICollection<Track> DistributionTracks { get; set; }
-
-        public Distributor(int id, string title, string password, string email, ICollection<Artist> distributionArtists,
-            ICollection<Album> distributionAlbums, ICollection<Track> distributionTracks) : base(id, title, password,
+        public Distributor(int id, string nickname, string password, string email) : base(id, nickname, password,
             email)
         {
-            DistributionArtists = distributionArtists;
-            DistributionAlbums = distributionAlbums;
-            DistributionTracks = distributionTracks;
         }
 
         public Distributor()

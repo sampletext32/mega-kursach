@@ -2,7 +2,7 @@
 {
     public class Admin : User
     {
-        public Admin(int id, string title, string password, string email) : base(id, title, password, email)
+        public Admin(int id, string nickname, string password, string email) : base(id, nickname, password, email)
         {
         }
 
