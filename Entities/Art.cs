@@ -7,12 +7,9 @@ namespace Entities
     {
         public string PicPath { get; set; }
 
-        public Album Album { get; set; }
-
-        public Art(int id, string picPath, Album album) : base(id)
+        public Art(int id, string picPath) : base(id)
         {
             PicPath = picPath;
-            Album = album;
         }
     }
 }
