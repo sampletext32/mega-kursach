@@ -1,15 +1,10 @@
 ﻿using Entities;
+using Infrastucture.CRUD;
 
 namespace Infrastucture
 {
-    public interface IArtRepository
+    public interface IArtRepository : IAddEntity<Art>, IGetEntity<Art>, IUpdateEntity<Art>, IRemoveEntity<Art>,
+        ICanGetAll<Art>
     {
-        Art Get(int id);
-
-        void Add(Art art);
-
-        void Update(Art art);
-
-        void Remove(Art art);
     }
 }

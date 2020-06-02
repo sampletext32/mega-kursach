@@ -5,28 +5,48 @@ using Infrastucture;
 
 namespace Infrustucture
 {
-    public class PlaylistRepository : AuditableEntityRepository<Playlist>, IPlaylistRepository
+    public class PlaylistRepository : AuditableEntityDbRepository<Playlist>, IPlaylistRepository
     {
-        private readonly AppDbContext _dbContext;
-
         public PlaylistRepository(AppDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
         }
 
-        public IReadOnlyList<Playlist> GetPlaylistByOwner(User owner)
+        public IList<Playlist> GetByOwner(User owner)
         {
-            return _dbContext.Playlists.Where(x => x.Owner.Equals(owner)).ToList();
+            return DbContext.Playlists.Where(x => x.Owner.Equals(owner)).ToList();
         }
 
-        public IReadOnlyList<Playlist> GetPlaylists()
+        public IList<Playlist> GetAll()
         {
-            return _dbContext.Playlists.ToList();
+            return DbContext.Playlists.ToList();
         }
 
-        public IReadOnlyList<Playlist> GetPlaylistsByTitle(string title)
+        public IList<Playlist> GetByTitle(string title)
         {
-            return _dbContext.Playlists.Where(x => x.Title.Equals(title)).ToList();
+            return DbContext.Playlists.Where(x => x.Title.Equals(title)).ToList();
+        }
+
+        public void Add(Playlist entity)
+        {
+            DbAdd(entity);
+            DbSaveChanges();
+        }
+
+        public Playlist Get(int id)
+        {
+            return DbGet(id);
+        }
+
+        public void Update(Playlist entity)
+        {
+            DbUpdate(entity);
+            DbSaveChanges();
+        }
+
+        public void Remove(Playlist entity)
+        {
+            DbRemove(entity);
+            DbSaveChanges();
         }
     }
 }

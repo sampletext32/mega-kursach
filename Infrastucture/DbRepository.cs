@@ -1,35 +1,35 @@
 ﻿namespace Infrastucture
 {
-    public abstract class Repository<TEntity> where TEntity : class
+    public abstract class DbRepository<TEntity> where TEntity : class
     {
         protected readonly AppDbContext DbContext;
 
-        public Repository(AppDbContext dbContext)
+        public DbRepository(AppDbContext dbContext)
         {
             DbContext = dbContext;
         }
 
-        public virtual TEntity Get(int id)
+        public virtual TEntity DbGet(int id)
         {
             return DbContext.Find<TEntity>(id);
         }
 
-        public virtual void Add(TEntity entity)
+        public virtual void DbAdd(TEntity entity)
         {
             DbContext.Add(entity);
         }
 
-        public virtual void Update(TEntity entity)
+        public virtual void DbUpdate(TEntity entity)
         {
             DbContext.Update(entity);
         }
 
-        public virtual void Remove(TEntity entity)
+        public virtual void DbRemove(TEntity entity)
         {
             DbContext.Remove(entity);
         }
 
-        public int SaveChanges()
+        public int DbSaveChanges()
         {
             return DbContext.SaveChanges();
         }

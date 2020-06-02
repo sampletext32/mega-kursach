@@ -1,18 +1,13 @@
 ﻿using System.Collections.Generic;
 using Entities;
+using Infrastucture.CRUD;
 
 namespace Infrastucture
 {
-    public interface IArtistRepository
+    public interface IArtistRepository : IAddEntity<Artist>, IGetEntity<Artist>, IUpdateEntity<Artist>,
+        IRemoveEntity<Artist>, ICanGetAll<Artist>
     {
-        Artist Get(int id);
-
-        void Add(Artist artist);
-        void Update(Artist artist);
-        void Remove(Artist artist);
-
-        IReadOnlyList<Artist> GetAllArtists();
-        IReadOnlyList<Artist> GetArtistsByAlbum(Album album);
-        IReadOnlyList<Artist> GetArtistsByDistributor(Distributor distributor);
+        IList<Artist> GetByAlbum(Album album);
+        IList<Artist> GetByDistributor(Distributor distributor);
     }
 }

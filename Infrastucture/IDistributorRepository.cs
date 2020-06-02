@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
 using Entities;
+using Infrastucture.CRUD;
 
 namespace Infrastucture
 {
-    public interface IDistributorRepository
+    public interface IDistributorRepository : IAddEntity<Distributor>, IGetEntity<Distributor>,
+        IUpdateEntity<Distributor>, IRemoveEntity<Distributor>, ICanGetAll<Distributor>
     {
-        Distributor Get(int id);
-
-        void Add(Distributor distributor);
-        void Update(Distributor distributor);
-        void Remove(Distributor distributor);
-        
     }
 }

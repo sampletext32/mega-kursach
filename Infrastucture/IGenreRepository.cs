@@ -1,15 +1,10 @@
 ﻿using Entities;
+using Infrastucture.CRUD;
 
 namespace Infrastucture
 {
-    public interface IGenreRepository
+    public interface IGenreRepository : IAddEntity<Genre>, IGetEntity<Genre>, IUpdateEntity<Genre>,
+        IRemoveEntity<Genre>, ICanGetAll<Genre>
     {
-        Genre Get(int id);
-
-        void Add(Genre genre);
-
-        void Update(Genre genre);
-
-        void Remove(Genre genre);
     }
 }

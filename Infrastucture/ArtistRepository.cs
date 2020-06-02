@@ -4,31 +4,51 @@ using Entities;
 
 namespace Infrastucture
 {
-    public class ArtistRepository : AuditableEntityRepository<Artist>, IArtistRepository
+    public class ArtistRepository : AuditableEntityDbRepository<Artist>, IArtistRepository
     {
-        private readonly AppDbContext _dbContext;
-
         public ArtistRepository(AppDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
         }
 
-        public IReadOnlyList<Artist> GetAllArtists()
+        public IList<Artist> GetAll()
         {
-            return _dbContext.Artists.ToList();
+            return DbContext.Artists.ToList();
         }
 
-        public IReadOnlyList<Artist> GetArtistsByAlbum(Album album)
+        public IList<Artist> GetByAlbum(Album album)
         {
-            return _dbContext.Artists.Where(x => album.MainArtists.Contains(x)).ToList();
+            return DbContext.Artists.Where(x => album.MainArtists.Contains(x)).ToList();
         }
 
-        public IReadOnlyList<Artist> GetArtistsByDistributor(Distributor distributor)
+        public IList<Artist> GetByDistributor(Distributor distributor)
         {
-            return _dbContext.Artists.Where(a =>
-                    new AlbumRepository(_dbContext).GetAlbumsByDistributor(distributor)
+            return DbContext.Artists.Where(a =>
+                    new AlbumRepository(DbContext).GetByDistributor(distributor)
                         .Any(t => t.MainArtists.Contains(a)))
                 .ToList();
+        }
+
+        public void Add(Artist entity)
+        {
+            DbAdd(entity);
+            DbSaveChanges();
+        }
+
+        public Artist Get(int id)
+        {
+            return DbGet(id);
+        }
+
+        public void Update(Artist entity)
+        {
+            DbUpdate(entity);
+            DbSaveChanges();
+        }
+
+        public void Remove(Artist entity)
+        {
+            DbRemove(entity);
+            DbSaveChanges();
         }
     }
 }

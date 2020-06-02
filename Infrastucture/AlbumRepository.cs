@@ -4,38 +4,58 @@ using Entities;
 
 namespace Infrastucture
 {
-    public class AlbumRepository : AuditableEntityRepository<Album>, IAlbumRepository
+    public class AlbumRepository : AuditableEntityDbRepository<Album>, IAlbumRepository
     {
-        private readonly AppDbContext _dbContext;
-
         public AlbumRepository(AppDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
         }
 
-        public IReadOnlyList<Album> GetAlbumsByYear(int year)
+        public IList<Album> GetByYear(int year)
         {
-            return _dbContext.Albums.Where(x => x.Year.Equals(year)).ToList();
+            return DbContext.Albums.Where(x => x.Year.Equals(year)).ToList();
         }
 
-        public IReadOnlyList<Album> GetAlbumsByArtist(Artist artist)
+        public IList<Album> GetByArtist(Artist artist)
         {
-            return _dbContext.Albums.Where(x => x.MainArtists.Contains(artist)).ToList();
+            return DbContext.Albums.Where(x => x.MainArtists.Contains(artist)).ToList();
         }
 
-        public IReadOnlyList<Album> GetAlbumsByTitle(string title)
+        public IList<Album> GetByTitle(string title)
         {
-            return _dbContext.Albums.Where(x => x.Title.Equals(title)).ToList();
+            return DbContext.Albums.Where(x => x.Title.Equals(title)).ToList();
         }
 
-        public IReadOnlyList<Album> GetAllAlbums()
+        public IList<Album> GetByDistributor(Distributor distributor)
         {
-            return _dbContext.Albums.ToList();
+            return DbContext.Albums.Where(x => x.Distributor.Equals(distributor)).ToList();
         }
 
-        public IReadOnlyList<Album> GetAlbumsByDistributor(Distributor distributor)
+        public IList<Album> GetAll()
         {
-            return _dbContext.Albums.Where(x => x.Distributor.Equals(distributor)).ToList();
+            return DbContext.Albums.ToList();
+        }
+
+        public void Add(Album entity)
+        {
+            DbAdd(entity);
+            DbSaveChanges();
+        }
+
+        public Album Get(int id)
+        {
+            return DbGet(id);
+        }
+
+        public void Update(Album entity)
+        {
+            DbUpdate(entity);
+            DbSaveChanges();
+        }
+
+        public void Remove(Album entity)
+        {
+            DbRemove(entity);
+            DbSaveChanges();
         }
     }
 }

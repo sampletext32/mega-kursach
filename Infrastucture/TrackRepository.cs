@@ -4,38 +4,63 @@ using Entities;
 
 namespace Infrastucture
 {
-    public class TrackRepository : AuditableEntityRepository<Track>, ITrackRepository
+    public class TrackRepository : AuditableEntityDbRepository<Track>, ITrackRepository
     {
-        private readonly AppDbContext _dbContext;
-
         public TrackRepository(AppDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
         }
 
-        public IReadOnlyList<Track> GetTracksByArtist(Artist artist)
+        public IList<Track> GetByArtist(Artist artist)
         {
-            return _dbContext.Tracks.Where(x => x.Artists.Contains(artist)).ToList();
+            return DbContext.Tracks.Where(x => x.Artists.Contains(artist)).ToList();
         }
 
-        public IReadOnlyList<Track> GetTracksByGenre(Genre genre)
+        public IList<Track> GetByGenre(Genre genre)
         {
-            return _dbContext.Tracks.Where(x => x.Genre.Equals(genre)).ToList();
+            return DbContext.Tracks.Where(x => x.Genre.Equals(genre)).ToList();
         }
 
-        public IReadOnlyList<Track> GetTracksByExplicit(bool @explicit)
+        public IList<Track> GetByExplicit(bool @explicit)
         {
-            return _dbContext.Tracks.Where(x => x.Explicit.Equals(@explicit)).ToList();
+            return DbContext.Tracks.Where(x => x.Explicit.Equals(@explicit)).ToList();
         }
 
-        public IReadOnlyList<Track> GetTracksByTitle(string title)
+        public IList<Track> GetByTitle(string title)
         {
-            return _dbContext.Tracks.Where(x => x.Title.Contains(title)).ToList();
+            return DbContext.Tracks.Where(x => x.Title.Contains(title)).ToList();
         }
 
-        public IReadOnlyList<Track> GetAllTracks()
+        public IList<Track> GetByAlbum(Album album)
         {
-            return _dbContext.Tracks.ToList();
+            return DbContext.Tracks.Where(x => x.Album == album).ToList();
+        }
+
+        public IList<Track> GetAll()
+        {
+            return DbContext.Tracks.ToList();
+        }
+
+        public void Add(Track entity)
+        {
+            DbAdd(entity);
+            DbSaveChanges();
+        }
+
+        public Track Get(int id)
+        {
+            return DbGet(id);
+        }
+
+        public void Update(Track entity)
+        {
+            DbUpdate(entity);
+            DbSaveChanges();
+        }
+
+        public void Remove(Track entity)
+        {
+            DbRemove(entity);
+            DbSaveChanges();
         }
     }
 }

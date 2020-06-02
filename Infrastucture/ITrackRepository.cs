@@ -1,28 +1,15 @@
 ﻿using System.Collections.Generic;
 using Entities;
+using Infrastucture.CRUD;
 
 namespace Infrastucture
 {
-    public interface ITrackRepository
+    public interface ITrackRepository : IAddEntity<Track>, IGetEntity<Track>, IUpdateEntity<Track>, IRemoveEntity<Track>, ICanGetAll<Track>
     {
-        Track Get(int id);
-
-        void Add(Track track);
-
-        void Update(Track track);
-
-        void Remove(Track track);
-
-        IReadOnlyList<Track> GetTracksByArtist(Artist artist);
-
-        IReadOnlyList<Track> GetTracksByGenre(Genre genre);
-
-        IReadOnlyList<Track> GetTracksByExplicit(bool @explicit);
-
-        IReadOnlyList<Track> GetTracksByTitle(string title);
-
-        IReadOnlyList<Track> GetAllTracks();
-
-        //IReadOnlyList<Track> GetTracksByAlbum(Album album);
+        IList<Track> GetByArtist(Artist artist);
+        IList<Track> GetByGenre(Genre genre);
+        IList<Track> GetByExplicit(bool @explicit);
+        IList<Track> GetByTitle(string title);
+        IList<Track> GetByAlbum(Album album);
     }
 }

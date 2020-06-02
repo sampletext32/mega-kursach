@@ -1,22 +1,13 @@
 ﻿using System.Collections.Generic;
 using Entities;
+using Infrastucture.CRUD;
 
 namespace Infrastucture
 {
-    public interface IPlaylistRepository
+    public interface IPlaylistRepository : IAddEntity<Playlist>, IGetEntity<Playlist>, IUpdateEntity<Playlist>,
+        IRemoveEntity<Playlist>, ICanGetAll<Playlist>
     {
-        Playlist Get(int id);
-
-        void Add(Playlist playlist);
-
-        void Update(Playlist playlist);
-
-        void Remove(Playlist playlist);
-
-        IReadOnlyList<Playlist> GetPlaylistByOwner(User owner);
-
-        IReadOnlyList<Playlist> GetPlaylists();
-
-        IReadOnlyList<Playlist> GetPlaylistsByTitle(string title);
+        IList<Playlist> GetByOwner(User owner);
+        IList<Playlist> GetByTitle(string title);
     }
 }

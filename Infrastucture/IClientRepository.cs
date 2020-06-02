@@ -1,13 +1,10 @@
 ﻿using Entities;
+using Infrastucture.CRUD;
 
 namespace Infrastucture
 {
-    public interface IClientRepository
+    public interface IClientRepository : IAddEntity<Client>, IGetEntity<Client>, IUpdateEntity<Client>,
+        IRemoveEntity<Client>, ICanGetAll<Client>
     {
-        Client Get(int id);
-
-        void Add(Client client);
-        void Update(Client client);
-        void Remove(Client client);
     }
 }
