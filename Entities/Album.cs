@@ -20,5 +20,9 @@ namespace Entities
             Year = year;
             MainArtists = mainArtists;
         }
+
+        public Album()
+        {
+        }
     }
 }

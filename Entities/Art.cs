@@ -11,5 +11,9 @@ namespace Entities
         {
             PicPath = picPath;
         }
+
+        public Art()
+        {
+        }
     }
 }

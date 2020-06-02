@@ -14,5 +14,9 @@ namespace Entities
         {
             Bio = bio;
         }
+
+        public Artist()
+        {
+        }
     }
 }
