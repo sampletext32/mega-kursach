@@ -1,9 +1,8 @@
-﻿using Infrastucture;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
 using Entities;
-using Infrustucture;
+using Infrastructure;
 
 namespace ConsoleTester
 {
