@@ -1,7 +1,7 @@
 ﻿using System;
 using Entities;
 
-namespace Infrastructure
+namespace Infrastructure.CommonRepositories
 {
     public abstract class AuditableEntityDbRepository<TEntity> : DbRepository<TEntity>
         where TEntity : AuditableEntity

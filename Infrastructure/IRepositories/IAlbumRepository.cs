@@ -2,10 +2,10 @@
 using Entities;
 using Infrastructure.CRUD;
 
-namespace Infrastructure
+namespace Infrastructure.IRepositories
 {
-    public interface IAlbumRepository : IAddEntity<Album>, IGetEntity<Album>, IUpdateEntity<Album>,
-        IRemoveEntity<Album>, ICanGetAll<Album>
+    public interface IAlbumRepository : ICanAddEntity<Album>, ICanGetEntity<Album>, ICanUpdateEntity<Album>,
+        ICanRemoveEntity<Album>, ICanGetAll<Album>
     {
         IList<Album> GetByYear(int year);
         IList<Album> GetByArtist(Artist artist);

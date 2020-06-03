@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Entities;
+using Infrastructure.CommonRepositories;
+using Infrastructure.IRepositories;
 
-
-namespace Infrastructure
+namespace Infrastructure.Repositories
 {
     public class DistributorRepository : AuditableEntityDbRepository<Distributor>, IDistributorRepository
     {

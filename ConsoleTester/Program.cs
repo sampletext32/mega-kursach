@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Design;
 using System;
 using Entities;
 using Infrastructure;
+using Infrastructure.IRepositories;
+using Infrastructure.Repositories;
 
 namespace ConsoleTester
 {

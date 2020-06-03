@@ -2,9 +2,9 @@
 using Entities;
 using Infrastructure.CRUD;
 
-namespace Infrastructure
+namespace Infrastructure.IRepositories
 {
-    public interface ITrackRepository : IAddEntity<Track>, IGetEntity<Track>, IUpdateEntity<Track>, IRemoveEntity<Track>, ICanGetAll<Track>
+    public interface ITrackRepository : ICanAddEntity<Track>, ICanGetEntity<Track>, ICanUpdateEntity<Track>, ICanRemoveEntity<Track>, ICanGetAll<Track>
     {
         IList<Track> GetByArtist(Artist artist);
         IList<Track> GetByGenre(Genre genre);

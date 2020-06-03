@@ -1,4 +1,4 @@
-﻿namespace Infrastructure
+﻿namespace Infrastructure.CommonRepositories
 {
     public abstract class DbRepository<TEntity> where TEntity : class
     {
