@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Entities
 {
-    public enum Role
+    public enum UserRole : int
     {
-        admin = 1,
-        distributor = 2,
-        artist = 3,
-        user = 4
+        Admin = 1,
+        Distributor = 2,
+        Artist = 3,
+        User = 4
     }
 
     public class User : TitledEntity
