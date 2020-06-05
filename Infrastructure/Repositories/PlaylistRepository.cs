@@ -14,7 +14,7 @@ namespace Infrastructure.Repositories
 
         public IList<Playlist> GetByOwner(User owner)
         {
-            return DbContext.Playlists.Where(x => x.Owner.Equals(owner)).ToList();
+            return DbContext.Playlists.Where(x => x.OwnerId.Equals(owner)).ToList();
         }
 
         public IList<Playlist> GetAll()

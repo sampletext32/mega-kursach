@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories
 
         public IList<Album> GetByDistributor(Distributor distributor)
         {
-            return DbContext.Albums.Where(x => x.Distributor.Equals(distributor)).ToList();
+            return DbContext.Albums.Where(x => x.DistributorId.Equals(distributor)).ToList();
         }
 
         public IList<Album> GetAll()

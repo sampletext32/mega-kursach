@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
 
         public IList<Track> GetByGenre(Genre genre)
         {
-            return DbContext.Tracks.Where(x => x.Genre.Equals(genre)).ToList();
+            return DbContext.Tracks.Where(x => x.GenreId.Equals(genre)).ToList();
         }
 
         public IList<Track> GetByExplicit(bool @explicit)
@@ -34,7 +34,7 @@ namespace Infrastructure.Repositories
 
         public IList<Track> GetByAlbum(Album album)
         {
-            return DbContext.Tracks.Where(x => x.Album == album).ToList();
+            return DbContext.Tracks.Where(x => x.AlbumId.Equals(albumId)).ToList();
         }
 
         public IList<Track> GetAll()
