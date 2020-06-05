@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
 
         public ICollection<Album> GetByArtist(int artist)
         {
-            return DbContext.Albums.Where(a => a.MainArtists.Any(albumArtist=> albumArtist.Id == artist)).ToList();
+            return DbContext.Albums.Where(a => a.Artists.Any(albumArtist=> albumArtist.Id == artist)).ToList();
         }
 
         public ICollection<Album> GetByTitle(string title)

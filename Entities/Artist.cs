@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Entities
@@ -7,6 +8,8 @@ namespace Entities
     public class Artist : Client
     {
         public string Bio { get; set; }
+
+        [NotMapped]
         public virtual ICollection<Album> Albums { get; set; }
 
         public Artist(string title, string password, string email, string firstName, string lastName,

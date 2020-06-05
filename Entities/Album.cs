@@ -10,7 +10,7 @@ namespace Entities
         public int Year { get; set; }
 
         [JsonIgnore] 
-        public virtual ICollection<Artist> MainArtists { get; set; }
+        public virtual ICollection<Artist> Artists { get; set; }
 
         [NotMapped] 
         public int Plays => Tracks.Sum(t => t.Plays);

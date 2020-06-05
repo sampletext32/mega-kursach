@@ -21,9 +21,9 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Entities.Art", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
@@ -42,9 +42,9 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Entities.Genre", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
@@ -63,13 +63,16 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Entities.Playlist", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ArtId")
+                    b.Property<int>("ArtId")
                         .HasColumnType("int");
+
+                    b.Property<long?>("ArtId1")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -81,17 +84,20 @@ namespace Infrastructure.Data.Migrations
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("OwnerId")
+                    b.Property<int>("OwnerId")
                         .HasColumnType("int");
+
+                    b.Property<long?>("OwnerId1")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtId");
+                    b.HasIndex("ArtId1");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("OwnerId1");
 
                     b.ToTable("Playlists");
 
@@ -100,16 +106,22 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Entities.Track", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AlbumId")
+                    b.Property<int>("AlbumId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ArtId")
+                    b.Property<long?>("AlbumId1")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("ArtId")
                         .HasColumnType("int");
+
+                    b.Property<long?>("ArtId1")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -117,31 +129,37 @@ namespace Infrastructure.Data.Migrations
                     b.Property<bool>("Explicit")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("GenreId")
+                    b.Property<int>("GenreId")
                         .HasColumnType("int");
+
+                    b.Property<long?>("GenreId1")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Plays")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AlbumId");
+                    b.HasIndex("AlbumId1");
 
-                    b.HasIndex("ArtId");
+                    b.HasIndex("ArtId1");
 
-                    b.HasIndex("GenreId");
+                    b.HasIndex("GenreId1");
 
                     b.ToTable("Tracks");
                 });
 
             modelBuilder.Entity("Entities.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
@@ -157,11 +175,14 @@ namespace Infrastructure.Data.Migrations
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Nickname")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -174,13 +195,16 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("Entities.Playlist");
 
-                    b.Property<int?>("DistributorId")
+                    b.Property<int>("DistributorId")
                         .HasColumnType("int");
+
+                    b.Property<long?>("DistributorId1")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
-                    b.HasIndex("DistributorId");
+                    b.HasIndex("DistributorId1");
 
                     b.HasDiscriminator().HasValue("Album");
                 });
@@ -196,7 +220,7 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("Entities.User");
 
-                    b.Property<DateTime>("Birthdate")
+                    b.Property<DateTime?>("Birthdate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
@@ -222,16 +246,21 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("Entities.Client");
 
-                    b.Property<int?>("AlbumId")
-                        .HasColumnType("int");
+                    b.Property<long?>("AlbumId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Bio")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TrackId")
-                        .HasColumnType("int");
+                    b.Property<long?>("DistributorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("TrackId")
+                        .HasColumnType("bigint");
 
                     b.HasIndex("AlbumId");
+
+                    b.HasIndex("DistributorId");
 
                     b.HasIndex("TrackId");
 
@@ -242,40 +271,44 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasOne("Entities.Art", "Art")
                         .WithMany()
-                        .HasForeignKey("ArtId");
+                        .HasForeignKey("ArtId1");
 
                     b.HasOne("Entities.User", "Owner")
                         .WithMany()
-                        .HasForeignKey("OwnerId");
+                        .HasForeignKey("OwnerId1");
                 });
 
             modelBuilder.Entity("Entities.Track", b =>
                 {
                     b.HasOne("Entities.Album", "Album")
                         .WithMany("Tracks")
-                        .HasForeignKey("AlbumId");
+                        .HasForeignKey("AlbumId1");
 
                     b.HasOne("Entities.Art", "Art")
                         .WithMany()
-                        .HasForeignKey("ArtId");
+                        .HasForeignKey("ArtId1");
 
                     b.HasOne("Entities.Genre", "Genre")
                         .WithMany()
-                        .HasForeignKey("GenreId");
+                        .HasForeignKey("GenreId1");
                 });
 
             modelBuilder.Entity("Entities.Album", b =>
                 {
                     b.HasOne("Entities.Distributor", "Distributor")
-                        .WithMany()
-                        .HasForeignKey("DistributorId");
+                        .WithMany("Albums")
+                        .HasForeignKey("DistributorId1");
                 });
 
             modelBuilder.Entity("Entities.Artist", b =>
                 {
                     b.HasOne("Entities.Album", null)
-                        .WithMany("MainArtists")
+                        .WithMany("Artists")
                         .HasForeignKey("AlbumId");
+
+                    b.HasOne("Entities.Distributor", null)
+                        .WithMany("Artists")
+                        .HasForeignKey("DistributorId");
 
                     b.HasOne("Entities.Track", null)
                         .WithMany("Artists")

@@ -1,194 +1,208 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Infrastructure.AdminRepository" Collapsed="true">
-    <Position X="16.25" Y="3.25" Width="1.5" />
+  <Class Name="Infrastructure.CommonRepositories.AuditableEntityDbRepository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommonRepositories\AuditableEntityDbRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infrastructure.CommonRepositories.DbRepository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAIAEAEAAIEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommonRepositories\DbRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infrastructure.Data.Migrations.init" Collapsed="true">
+    <Position X="30.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Data\Migrations\20200603225022_init.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infrastructure.Data.Migrations.AppDbContextModelSnapshot" Collapsed="true">
+    <Position X="32.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Data\Migrations\AppDbContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infrastructure.Repositories.AdminRepository" Collapsed="true">
+    <Position X="10" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>AdminRepository.cs</FileName>
+      <FileName>Repositories\AdminRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Infrastructure.AlbumRepository" Collapsed="true">
-    <Position X="0.5" Y="3.25" Width="1.5" />
+  <Class Name="Infrastructure.Repositories.AlbumRepository" Collapsed="true">
+    <Position X="14.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABABAAKBAAAACAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>AlbumRepository.cs</FileName>
+      <FileName>Repositories\AlbumRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Infrastructure.Repositories.ArtistRepository" Collapsed="true">
+    <Position X="19" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABBAAACBAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ArtistRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Infrastructure.Repositories.ArtRepository" Collapsed="true">
+    <Position X="23.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ArtRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Infrastructure.Repositories.ClientRepository" Collapsed="true">
+    <Position X="25.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ClientRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Infrastructure.Repositories.DistributorRepository" Collapsed="true">
+    <Position X="28" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\DistributorRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Infrastructure.Repositories.GenreRepository" Collapsed="true">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\GenreRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Infrastructure.Repositories.PlaylistRepository" Collapsed="true">
+    <Position X="16.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAQBAAAAIBAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\PlaylistRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Infrastructure.Repositories.TrackRepository" Collapsed="true">
+    <Position X="21.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACYAAAAAAAAAAABBBAAIBAAAAAAAAAAAAgAAAAAAgAA=</HashCode>
+      <FileName>Repositories\TrackRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Infrastructure.AppDbContext" Collapsed="true">
-    <Position X="21" Y="0.5" Width="1.5" />
+    <Position X="30.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAEAAAAAAACoAAQAAAAAAAAAAAEAACAAEAAA=</HashCode>
       <FileName>AppDbContext.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Infrastructure.ArtistRepository" Collapsed="true">
-    <Position X="9.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABBAAACBAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>ArtistRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infrastructure.ArtRepository" Collapsed="true">
-    <Position X="14" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>ArtRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infrastructure.AuditableEntityDbRepository&lt;TEntity&gt;" Collapsed="true">
-    <Position X="9.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AuditableEntityDbRepository.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Infrastructure.ClientRepository" Collapsed="true">
-    <Position X="18.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>ClientRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infrastructure.DbRepository&lt;TEntity&gt;" Collapsed="true">
-    <Position X="9.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAIAEAEAAIEAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DbRepository.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Infrastructure.DistributorRepository" Collapsed="true">
-    <Position X="5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>DistributorRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infrastructure.GenreRepository" Collapsed="true">
-    <Position X="11.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>GenreRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infrastructure.TrackRepository" Collapsed="true">
-    <Position X="2.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACYAAAAAAAAAAABBBAAIBAAAAAAAAAAAAgAAAAAAgAA=</HashCode>
-      <FileName>TrackRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infrustucture.PlaylistRepository" Collapsed="true">
-    <Position X="7.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAQBAAAAIBAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>PlaylistRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Interface Name="Infrastructure.CRUD.IAddEntity&lt;TEntity&gt;" Collapsed="true">
-    <Position X="3.25" Y="8.5" Width="1.5" />
+  <Interface Name="Infrastructure.CRUD.ICanAddEntity&lt;TEntity&gt;" Collapsed="true">
+    <Position X="12.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CRUD\IAddEntity.cs</FileName>
+      <FileName>CRUD\ICanAddEntity.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Infrastructure.CRUD.ICanGetAll&lt;TEntity&gt;" Collapsed="true">
-    <Position X="0.5" Y="8.5" Width="1.5" />
+    <Position X="10" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>CRUD\ICanGetAll.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.CRUD.IGetEntity&lt;TEntity&gt;" Collapsed="true">
-    <Position X="15.75" Y="8.5" Width="1.5" />
+  <Interface Name="Infrastructure.CRUD.ICanGetEntity&lt;TEntity&gt;" Collapsed="true">
+    <Position X="25.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CRUD\IGetEntity.cs</FileName>
+      <FileName>CRUD\ICanGetEntity.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.CRUD.IRemoveEntity&lt;TEntity&gt;" Collapsed="true">
-    <Position X="18" Y="8.5" Width="1.5" />
+  <Interface Name="Infrastructure.CRUD.ICanRemoveEntity&lt;TEntity&gt;" Collapsed="true">
+    <Position X="27.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CRUD\IRemoveEntity.cs</FileName>
+      <FileName>CRUD\ICanRemoveEntity.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.CRUD.IUpdateEntity&lt;TEntity&gt;" Collapsed="true">
-    <Position X="9.5" Y="4.5" Width="1.5" />
+  <Interface Name="Infrastructure.CRUD.ICanUpdateEntity&lt;TEntity&gt;" Collapsed="true">
+    <Position X="19" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CRUD\IUpdateEntity.cs</FileName>
+      <FileName>CRUD\ICanUpdateEntity.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IAdminRepository" Collapsed="true">
-    <Position X="12.5" Y="5.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IAdminRepository" Collapsed="true">
+    <Position X="22" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IAdminRepository.cs</FileName>
+      <FileName>IRepositories\IAdminRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IAlbumRepository" Collapsed="true">
-    <Position X="12.5" Y="7.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IAlbumRepository" Collapsed="true">
+    <Position X="22" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAKAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IAlbumRepository.cs</FileName>
+      <FileName>IRepositories\IAlbumRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IArtistRepository" Collapsed="true">
-    <Position X="6.5" Y="9.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IArtistRepository" Collapsed="true">
+    <Position X="16" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IArtistRepository.cs</FileName>
+      <FileName>IRepositories\IArtistRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IArtRepository" Collapsed="true">
-    <Position X="9.5" Y="5.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IArtRepository" Collapsed="true">
+    <Position X="19" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IArtRepository.cs</FileName>
+      <FileName>IRepositories\IArtRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IClientRepository" Collapsed="true">
-    <Position X="9.5" Y="7.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IClientRepository" Collapsed="true">
+    <Position X="19" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IClientRepository.cs</FileName>
+      <FileName>IRepositories\IClientRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IDistributorRepository" Collapsed="true">
-    <Position X="6.5" Y="5.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IDistributorRepository" Collapsed="true">
+    <Position X="16" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IDistributorRepository.cs</FileName>
+      <FileName>IRepositories\IDistributorRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IGenreRepository" Collapsed="true">
-    <Position X="6.5" Y="7.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IGenreRepository" Collapsed="true">
+    <Position X="16" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IGenreRepository.cs</FileName>
+      <FileName>IRepositories\IGenreRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.IPlaylistRepository" Collapsed="true">
-    <Position X="9.5" Y="9.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.IPlaylistRepository" Collapsed="true">
+    <Position X="19" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IPlaylistRepository.cs</FileName>
+      <FileName>IRepositories\IPlaylistRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Infrastructure.ITrackRepository" Collapsed="true">
-    <Position X="12.5" Y="9.75" Width="1.5" />
+  <Interface Name="Infrastructure.IRepositories.ITrackRepository" Collapsed="true">
+    <Position X="22" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAABBAAIAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
-      <FileName>ITrackRepository.cs</FileName>
+      <FileName>IRepositories\ITrackRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

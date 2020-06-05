@@ -20,7 +20,7 @@ namespace Infrastructure.Repositories
 
         public ICollection<Artist> GetByAlbum(int album)
         {
-            return DbContext.Albums.Find(album)?.MainArtists.ToList();
+            return DbContext.Albums.Find(album)?.Artists.ToList();
         }
 
         public void Add(Artist entity)
