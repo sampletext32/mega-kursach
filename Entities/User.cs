@@ -4,6 +4,14 @@ using System.Text;
 
 namespace Entities
 {
+    public enum Roles
+    {
+        admin = 1,
+        distributor = 2,
+        artist = 3,
+        user = 4
+    }
+
     public class User : TitledEntity
     {
         //Title is a Nickname
