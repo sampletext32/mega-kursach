@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Entities;
 using Infrastructure.CommonRepositories;
@@ -12,32 +13,32 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public IList<Track> GetByArtist(Artist artist)
+        public ICollection<Track> GetByArtist(int artist)
         {
-            return DbContext.Tracks.Where(x => x.Artists.Contains(artist)).ToList();
+            return DbContext.Tracks.Include(t => t.Artists).Where(x => x.Artists.Any(a => a.Id == artist)).ToList();
         }
 
-        public IList<Track> GetByGenre(Genre genre)
+        public ICollection<Track> GetByGenre(int genre)
         {
             return DbContext.Tracks.Where(x => x.GenreId.Equals(genre)).ToList();
         }
 
-        public IList<Track> GetByExplicit(bool @explicit)
+        public ICollection<Track> GetByExplicit(bool @explicit)
         {
             return DbContext.Tracks.Where(x => x.Explicit.Equals(@explicit)).ToList();
         }
 
-        public IList<Track> GetByTitle(string title)
+        public ICollection<Track> GetByTitle(string title)
         {
-            return DbContext.Tracks.Where(x => x.Title.Contains(title)).ToList();
+            return DbContext.Tracks.Where(x => x.Title.Equals(title)).ToList();
         }
 
-        public IList<Track> GetByAlbum(Album album)
+        public ICollection<Track> GetByAlbum(int album)
         {
-            return DbContext.Tracks.Where(x => x.AlbumId.Equals(albumId)).ToList();
+            return DbContext.Tracks.Where(x => x.AlbumId.Equals(album)).ToList();
         }
 
-        public IList<Track> GetAll()
+        public ICollection<Track> GetAll()
         {
             return DbContext.Tracks.ToList();
         }

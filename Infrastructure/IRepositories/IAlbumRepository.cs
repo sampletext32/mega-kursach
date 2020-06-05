@@ -7,9 +7,9 @@ namespace Infrastructure.IRepositories
     public interface IAlbumRepository : ICanAddEntity<Album>, ICanGetEntity<Album>, ICanUpdateEntity<Album>,
         ICanRemoveEntity<Album>, ICanGetAll<Album>
     {
-        IList<Album> GetByYear(int year);
-        IList<Album> GetByArtist(Artist artist);
-        IList<Album> GetByTitle(string title);
-        IList<Album> GetByDistributor(Distributor distributor);
+        ICollection<Album> GetByYear(int year);
+        ICollection<Album> GetByArtist(int artist);
+        ICollection<Album> GetByTitle(string title);
+        ICollection<Album> GetByDistributor(int distributor);
     }
 }

@@ -35,7 +35,7 @@ namespace Infrastructure.Repositories
             DbSaveChanges();
         }
 
-        public IList<Genre> GetAll()
+        public ICollection<Genre> GetAll()
         {
             return DbContext.Genres.ToList();
         }

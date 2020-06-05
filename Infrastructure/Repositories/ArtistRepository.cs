@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Entities;
 using Infrastructure.CommonRepositories;
@@ -12,22 +13,14 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public IList<Artist> GetAll()
+        public ICollection<Artist> GetAll()
         {
             return DbContext.Artists.ToList();
         }
 
-        public IList<Artist> GetByAlbum(Album album)
+        public ICollection<Artist> GetByAlbum(int album)
         {
-            return DbContext.Artists.Where(x => album.MainArtists.Contains(x)).ToList();
-        }
-
-        public IList<Artist> GetByDistributor(Distributor distributor)
-        {
-            return DbContext.Artists.Where(a =>
-                    new AlbumRepository(DbContext).GetByDistributor(distributor)
-                        .Any(t => t.MainArtists.Contains(a)))
-                .ToList();
+            return DbContext.Albums.Find(album)?.MainArtists.ToList();
         }
 
         public void Add(Artist entity)

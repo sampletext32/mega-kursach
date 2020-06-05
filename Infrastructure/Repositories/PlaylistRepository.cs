@@ -12,17 +12,17 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public IList<Playlist> GetByOwner(User owner)
+        public ICollection<Playlist> GetByOwner(int owner)
         {
             return DbContext.Playlists.Where(x => x.OwnerId.Equals(owner)).ToList();
         }
 
-        public IList<Playlist> GetAll()
+        public ICollection<Playlist> GetAll()
         {
             return DbContext.Playlists.ToList();
         }
 
-        public IList<Playlist> GetByTitle(string title)
+        public ICollection<Playlist> GetByTitle(string title)
         {
             return DbContext.Playlists.Where(x => x.Title.Equals(title)).ToList();
         }

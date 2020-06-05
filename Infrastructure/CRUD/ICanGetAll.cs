@@ -4,6 +4,6 @@ namespace Infrastructure.CRUD
 {
     public interface ICanGetAll<TEntity> where TEntity : class
     {
-        IList<TEntity> GetAll();
+        ICollection<TEntity> GetAll();
     }
 }

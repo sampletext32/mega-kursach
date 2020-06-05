@@ -12,27 +12,27 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public IList<Album> GetByYear(int year)
+        public ICollection<Album> GetByYear(int year)
         {
             return DbContext.Albums.Where(x => x.Year.Equals(year)).ToList();
         }
 
-        public IList<Album> GetByArtist(Artist artist)
+        public ICollection<Album> GetByArtist(int artist)
         {
-            return DbContext.Albums.Where(x => x.MainArtists.Contains(artist)).ToList();
+            return DbContext.Albums.Where(a => a.MainArtists.Any(albumArtist=> albumArtist.Id == artist)).ToList();
         }
 
-        public IList<Album> GetByTitle(string title)
+        public ICollection<Album> GetByTitle(string title)
         {
             return DbContext.Albums.Where(x => x.Title.Equals(title)).ToList();
         }
 
-        public IList<Album> GetByDistributor(Distributor distributor)
+        public ICollection<Album> GetByDistributor(int distributor)
         {
             return DbContext.Albums.Where(x => x.DistributorId.Equals(distributor)).ToList();
         }
 
-        public IList<Album> GetAll()
+        public ICollection<Album> GetAll()
         {
             return DbContext.Albums.ToList();
         }

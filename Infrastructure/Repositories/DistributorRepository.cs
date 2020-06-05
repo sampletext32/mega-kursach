@@ -12,7 +12,7 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public IList<Distributor> GetAll()
+        public ICollection<Distributor> GetAll()
         {
             return DbContext.Distributors.ToList();
         }

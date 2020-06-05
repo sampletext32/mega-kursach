@@ -35,7 +35,7 @@ namespace Infrastructure.Repositories
             DbSaveChanges();
         }
 
-        public IList<Admin> GetAll()
+        public ICollection<Admin> GetAll()
         {
             return DbContext.Admins.ToList();
         }
