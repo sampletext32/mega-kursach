@@ -8,23 +8,25 @@ namespace Entities
     {
         public ICollection<Artist> Artists { get; set; }
 
-        public Genre Genre { get; set; }
+        public int GenreId { get; set; }
 
-        public Art Art { get; set; }
+        public int ArtId { get; set; }
 
         public bool Explicit { get; set; }
 
-        public Album Album { get; set; }
+        public int AlbumId { get; set; }
+        public int NumberOfPlays { get; set; }
 
-        public Track(int id, string title, ICollection<Artist> artists, Genre genre, Art art, bool @explicit,
-            Album album) :
+        public Track(int id, string title, ICollection<Artist> artists, int genreId, int artId, bool @explicit,
+            int albumId, int numberOfPlays) :
             base(id, title)
         {
             Explicit = @explicit;
             Artists = artists;
-            Genre = genre;
-            Art = art;
-            Album = album;
+            GenreId = genreId;
+            ArtId = artId;
+            AlbumId = albumId;
+            NumberOfPlays = numberOfPlays;
         }
 
         public Track()

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entities
 {
-    public enum Roles
+    public enum Role
     {
         admin = 1,
         distributor = 2,

@@ -8,15 +8,15 @@ namespace Entities
     {
         public ICollection<Track> Tracks { get; set; }
 
-        public User Owner { get; set; }
+        public int OwnerId { get; set; }
 
-        public Art Art { get; set; }
+        public int ArtId { get; set; }
 
-        public Playlist(int id, string title, ICollection<Track> tracks, User owner, Art art) : base(id, title)
+        public Playlist(int id, string title, ICollection<Track> tracks, int ownerId, int artId) : base(id, title)
         {
             Tracks = tracks;
-            Owner = owner;
-            Art = art;
+            OwnerId = ownerId;
+            ArtId = artId;
         }
 
         public Playlist()
