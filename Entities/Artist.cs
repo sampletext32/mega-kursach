@@ -7,13 +7,13 @@ namespace Entities
     public class Artist : Client
     {
         public string Bio { get; set; }
-        public ICollection<Album> Albums { get; set; }
-        
+        public virtual ICollection<Album> Albums { get; set; }
 
-        public Artist(int id, string title, string password, string email, string firstName, string lastName,
+        public Artist(string title, string password, string email, string firstName, string lastName,
             string middleName, DateTime birthdate, string bio) :
-            base(id, title, password, email, firstName, lastName, middleName, birthdate)
+            base(title, password, email, firstName, lastName, middleName, birthdate)
         {
+            Role = UserRole.Artist; // Hardcode 
             Bio = bio;
         }
 

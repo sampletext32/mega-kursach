@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Entities
@@ -9,18 +10,21 @@ namespace Entities
         Admin = 1,
         Distributor = 2,
         Artist = 3,
-        User = 4
+        Client = 4
     }
 
-    public class User : TitledEntity
+    public abstract class User : AuditableEntity
     {
-        //Title is a Nickname
+        public UserRole Role { get; set; }
 
-        public string Password { get; set; }
+        public string Nickname { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
 
-        public User(int id, string nickname, string password, string email) : base(id, nickname)
+        public User(UserRole role, string nickname, string password, string email)
         {
+            Role = role;
+            Nickname = nickname;
             Password = password;
             Email = email;
         }

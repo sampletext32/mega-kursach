@@ -5,14 +5,11 @@ namespace Entities
 {
     public class Distributor : User
     {
-        public ICollection<Album> Albums { get; set; }
-        public ICollection<Artist> Artists { get; set; }
+        public virtual ICollection<Album> Albums { get; set; }
+        public virtual ICollection<Artist> Artists { get; set; }
 
-        public Distributor(int id, string nickname, string password, string email, ICollection<Album> albums,
-            ICollection<Artist> artists) : base(id, nickname, password, email)
+        public Distributor(string nickname, string password, string email) : base(UserRole.Distributor, nickname, password, email)
         {
-            Albums = albums;
-            Artists = artists;
         }
 
         public Distributor()

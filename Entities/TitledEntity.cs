@@ -6,7 +6,7 @@ namespace Entities
     {
         public string Title { get; set; }
 
-        protected TitledEntity(int id, string title) : base(id)
+        protected TitledEntity(string title)
         {
             Title = title;
         }

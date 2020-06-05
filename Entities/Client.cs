@@ -10,10 +10,10 @@ namespace Entities
 
         public string MiddleName { get; set; }
 
-        public DateTime Birthdate { get; set; }
+        public DateTime? Birthdate { get; set; }
 
-        public Client(int id, string nickname, string password, string email, string firstName, string lastName,
-            string middleName, DateTime birthdate) : base(id, nickname, password, email)
+        public Client(string nickname, string password, string email, string firstName, string lastName,
+            string middleName, DateTime? birthdate) : base(UserRole.Client, nickname, password, email)
         {
             FirstName = firstName;
             LastName = lastName;

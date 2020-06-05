@@ -7,7 +7,7 @@ namespace Entities
     {
         public string PicPath { get; set; }
 
-        public Art(int id, string picPath) : base(id)
+        public Art(string picPath)
         {
             PicPath = picPath;
         }
