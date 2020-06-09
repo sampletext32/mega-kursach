@@ -17,7 +17,7 @@
   <Class Name="Entities.ArtistData" Collapsed="true">
     <Position X="7.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAADAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAADAAAAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ArtistData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,14 +38,14 @@
   <Class Name="Entities.DistributorData" Collapsed="true">
     <Position X="5.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAEAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>DistributorData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entities.Genre" Collapsed="true">
     <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Genre.cs</FileName>
     </TypeIdentifier>
   </Class>
