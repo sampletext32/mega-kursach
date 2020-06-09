@@ -1,27 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Entities
 {
-    public class Playlist : TitledEntity
+    public class Playlist
     {
-        [JsonIgnore]
-        public virtual ICollection<Track> Tracks { get; set; }
+        public int Id { get; set; }
+        public Art Art { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
 
-        public int OwnerId { get; set; }
-
-        public virtual User Owner { get; set; }
-
-        public int ArtId { get; set; }
-
-        public virtual Art Art { get; set; }
-
-        public Playlist(string title, int ownerId, int artId) : base(title)
+        public Playlist(Art art, string title, string description)
         {
-            OwnerId = ownerId;
-            ArtId = artId;
+            Art = art;
+            Title = title;
+            Description = description;
         }
 
         public Playlist()

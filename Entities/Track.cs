@@ -1,39 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
-
-namespace Entities
+﻿namespace Entities
 {
-    public class Track : TitledEntity
+    public class Track
     {
-        [JsonIgnore] 
-        public virtual ICollection<Artist> Artists { get; set; }
-
-        public int GenreId { get; set; }
-
-        public virtual Genre Genre { get; set; }
-
-        public int ArtId { get; set; }
-
-        public virtual Art Art { get; set; }
-
-        public bool Explicit { get; set; }
-
-        public int AlbumId { get; set; }
-
-        public virtual Album Album { get; set; }
-
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Path { get; set; }
         public int Plays { get; set; }
+        public bool IsExplicit { get; set; }
+        public Album Album { get; set; }
 
-        public Track(string title, int genreId, int artId, bool @explicit, int albumId, int plays) :
-            base(title)
+        public Track(string title, string path, int plays, bool isExplicit, Album album)
         {
-            Explicit = @explicit;
-            GenreId = genreId;
-            ArtId = artId;
-            AlbumId = albumId;
+            Title = title;
+            Path = path;
             Plays = plays;
+            IsExplicit = isExplicit;
+            Album = album;
         }
 
         public Track()

@@ -1,87 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Entities.Admin" Collapsed="true">
-    <Position X="16" Y="4.75" Width="1.5" />
+  <Class Name="Entities.Album" Collapsed="true">
+    <Position X="3.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Admin.cs</FileName>
+      <HashCode>AAACAAAAAEAIAEAAAAoAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Album.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entities.Art" Collapsed="true">
-    <Position X="22.75" Y="1.75" Width="1.5" />
+    <Position X="5.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Art.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entities.Artist" Collapsed="true">
-    <Position X="18.25" Y="6.25" Width="1.5" />
+  <Class Name="Entities.ArtistData" Collapsed="true">
+    <Position X="7.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
-      <FileName>Artist.cs</FileName>
+      <HashCode>AAADAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ArtistData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entities.AuditableEntity" Collapsed="true">
-    <Position X="16" Y="0.5" Width="1.5" />
+  <Class Name="Entities.CommonUserData" Collapsed="true">
+    <Position X="9" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAABAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AuditableEntity.cs</FileName>
+      <HashCode>AAACAEAAAAAAAAAAAAAQAAQAAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>CommonUserData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entities.Client" Collapsed="true">
-    <Position X="18.25" Y="4.75" Width="1.5" />
+  <Class Name="Entities.Country" Collapsed="true">
+    <Position X="3.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Client.cs</FileName>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Country.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entities.Distributor" Collapsed="true">
-    <Position X="20.5" Y="4.75" Width="1.5" />
+  <Class Name="Entities.DistributorData" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAACAAAAAA=</HashCode>
-      <FileName>Distributor.cs</FileName>
+      <HashCode>AAACAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DistributorData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entities.Genre" Collapsed="true">
-    <Position X="13.75" Y="3.25" Width="1.5" />
+    <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Genre.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entities.Playlist" Collapsed="true">
-    <Position X="9.25" Y="3.25" Width="1.5" />
+    <Position X="9" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACIAEAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAgAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Playlist.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entities.TitledEntity" Collapsed="true">
-    <Position X="15" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TitledEntity.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Entities.Track" Collapsed="true">
-    <Position X="11.5" Y="3.25" Width="1.5" />
+    <Position X="3.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAAAABAAAAAAgAAAAAAAIEAAAAAgAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAEZAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Track.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entities.User" Collapsed="true">
-    <Position X="18.25" Y="3.25" Width="1.5" />
+  <Class Name="Entities.TrackToArtist" Collapsed="true">
+    <Position X="5.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
-      <FileName>User.cs</FileName>
+      <HashCode>AAACAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TrackToArtist.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entities.Album" Collapsed="true">
-    <Position X="9.25" Y="4.75" Width="1.5" />
+  <Class Name="Entities.TrackToPlaylist" Collapsed="true">
+    <Position X="7.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAAAAAAAAAACAAAAAAIgAAA=</HashCode>
-      <FileName>Album.cs</FileName>
+      <HashCode>AAASAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TrackToPlaylist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.User" Collapsed="true">
+    <Position X="9" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgICAAAAACQAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

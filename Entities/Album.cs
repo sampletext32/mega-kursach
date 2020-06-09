@@ -1,29 +1,28 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Entities
 {
-    public class Album : Playlist
+    public class Album
     {
-        public int Year { get; set; }
+        public int Id { get; set; }
+        public Art Art { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string Title { get; set; }
+        public Genre Genre { get; set; }
+        public DistributorData Distributor { get; set; }
+        public ICollection<Track> Tracks { get; set; }
 
-        [JsonIgnore] 
-        public virtual ICollection<Artist> Artists { get; set; }
-
-        [NotMapped] 
-        public int Plays => Tracks.Sum(t => t.Plays);
-
-        public int DistributorId { get; set; }
-
-        public virtual Distributor Distributor { get; set; }
-
-        public Album(string title, int ownerId, int artId, int distributorId,
-            int year) : base(title, ownerId, artId)
+        public Album(Art art, DateTime releaseDate, string title, Genre genre, DistributorData distributor,
+            ICollection<Track> tracks)
         {
-            DistributorId = distributorId;
-            Year = year;
+            Art = art;
+            ReleaseDate = releaseDate;
+            Title = title;
+            Genre = genre;
+            Distributor = distributor;
+            Tracks = tracks;
         }
 
         public Album()
