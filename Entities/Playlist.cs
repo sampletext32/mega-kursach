@@ -10,12 +10,14 @@ namespace Entities
         public Art Art { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public ICollection<TrackToPlaylist> Tracks { get; set; }
 
-        public Playlist(Art art, string title, string description)
+        public Playlist(Art art, string title, string description, ICollection<TrackToPlaylist> tracks)
         {
             Art = art;
             Title = title;
             Description = description;
+            Tracks = tracks;
         }
 
         public Playlist()

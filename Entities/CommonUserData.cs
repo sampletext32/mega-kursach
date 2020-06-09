@@ -11,20 +11,17 @@ namespace Entities
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public DateTime? BirthDate { get; set; }
-        public Country Country { get; set; }
 
         public CommonUserData(
             string firstName,
             string lastName,
             string middleName,
-            DateTime? birthDate,
-            Country country)
+            DateTime? birthDate)
         {
             FirstName = firstName;
             LastName = lastName;
             MiddleName = middleName;
             BirthDate = birthDate;
-            Country = country;
         }
 
         public CommonUserData()
