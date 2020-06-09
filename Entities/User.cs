@@ -1,4 +1,6 @@
-﻿namespace Entities
+﻿using System.Collections.Generic;
+
+namespace Entities
 {
     public class User
     {
@@ -7,17 +9,20 @@
         public string Password { get; set; }
         public virtual CommonUserData CommonUserData { get; set; }
         public virtual DistributorData DistributorData { get; set; }
+        public virtual ICollection<Playlist> Playlists { get; set; }
 
         public User(
             string email,
             string password,
             CommonUserData commonUserData,
-            DistributorData distributorData)
+            DistributorData distributorData,
+            ICollection<Playlist> playlists)
         {
             Email = email;
             Password = password;
             CommonUserData = commonUserData;
             DistributorData = distributorData;
+            Playlists = playlists;
         }
 
         public User()

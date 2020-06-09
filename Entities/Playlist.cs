@@ -7,19 +7,19 @@ namespace Entities
     public class Playlist
     {
         public int Id { get; set; }
-        public Art Art { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public ICollection<TrackToPlaylist> Tracks { get; set; }
-        public User Owner { get; set; }
+        public virtual Art Art { get; set; }
+        public virtual User Owner { get; set; }
+        public virtual ICollection<TrackToPlaylist> Tracks { get; set; }
 
-        public Playlist(Art art, string title, string description, ICollection<TrackToPlaylist> tracks, User owner)
+        public Playlist(string title, string description, Art art, User owner, ICollection<TrackToPlaylist> tracks)
         {
-            Art = art;
             Title = title;
             Description = description;
-            Tracks = tracks;
+            Art = art;
             Owner = owner;
+            Tracks = tracks;
         }
 
         public Playlist()

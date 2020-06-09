@@ -3,8 +3,8 @@
     public class TrackToPlaylist
     {
         public int Id { get; set; }
-        public Track Track { get; set; }
-        public Playlist Playlist { get; set; }
+        public virtual Track Track { get; set; }
+        public virtual Playlist Playlist { get; set; }
 
         public TrackToPlaylist(Track track, Playlist playlist)
         {
