@@ -10,15 +10,21 @@ namespace Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public virtual Art Art { get; set; }
-        public virtual User Owner { get; set; }
+        public virtual UserLibrary OwnerLibrary { get; set; }
         public virtual ICollection<TrackToPlaylist> Tracks { get; set; }
 
-        public Playlist(string title, string description, Art art, User owner, ICollection<TrackToPlaylist> tracks)
+        public Playlist(
+            string title,
+            string description,
+            Art art,
+            
+            UserLibrary ownerLibrary,
+            ICollection<TrackToPlaylist> tracks)
         {
             Title = title;
             Description = description;
             Art = art;
-            Owner = owner;
+            OwnerLibrary = ownerLibrary;
             Tracks = tracks;
         }
 

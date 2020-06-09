@@ -9,21 +9,20 @@ namespace Entities
         public string Password { get; set; }
         public virtual CommonUserData CommonUserData { get; set; }
         public virtual DistributorData DistributorData { get; set; }
-        public virtual ICollection<Playlist> Playlists { get; set; }
-        //TODO: Implement user library, replace playlists
+        public virtual UserLibrary UserLibrary { get; set; }
 
         public User(
             string email,
             string password,
             CommonUserData commonUserData,
             DistributorData distributorData,
-            ICollection<Playlist> playlists)
+            UserLibrary userLibrary)
         {
             Email = email;
             Password = password;
             CommonUserData = commonUserData;
             DistributorData = distributorData;
-            Playlists = playlists;
+            UserLibrary = userLibrary;
         }
 
         public User()
