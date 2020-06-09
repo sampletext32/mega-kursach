@@ -13,8 +13,8 @@ namespace Entities
         public virtual ICollection<ArtistToDistributor> Distributors { get; set; }
 
         public ArtistData(
-            string nickname, 
-            string bio, 
+            string nickname,
+            string bio,
             ICollection<TrackToArtist> tracks,
             ICollection<ArtistToDistributor> distributors)
         {
