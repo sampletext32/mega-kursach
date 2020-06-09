@@ -6,14 +6,14 @@ namespace Entities
     {
         public int Id { get; set; }
         public virtual User User { get; set; }
-        public virtual ICollection<Album> AddedAlbums { get; set; }
-        public virtual ICollection<Playlist> AddedPlaylists { get; set; }
+        public virtual ICollection<Album> Albums { get; set; }
+        public virtual ICollection<Playlist> Playlists { get; set; }
 
-        public UserLibrary(User user, ICollection<Album> addedAlbums, ICollection<Playlist> addedPlaylists)
+        public UserLibrary(User user, ICollection<Album> albums, ICollection<Playlist> playlists)
         {
             User = user;
-            AddedAlbums = addedAlbums;
-            AddedPlaylists = addedPlaylists;
+            Albums = albums;
+            Playlists = playlists;
         }
 
         public UserLibrary()
