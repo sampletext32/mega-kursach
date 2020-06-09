@@ -10,6 +10,7 @@ namespace Entities
         public virtual CommonUserData CommonUserData { get; set; }
         public virtual DistributorData DistributorData { get; set; }
         public virtual ICollection<Playlist> Playlists { get; set; }
+        //TODO: Implement user library, replace playlists
 
         public User(
             string email,
