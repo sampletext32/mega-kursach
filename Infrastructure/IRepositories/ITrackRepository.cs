@@ -2,7 +2,7 @@
 using Entities;
 using Infrastructure.CRUD;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.IRepositories
 {
     public interface ITrackRepository : ICanAddEntity<Track>, ICanGetEntity<Track>, ICanUpdateEntity<Track>,
         ICanRemoveEntity<Track>, ICanGetAll<Track>

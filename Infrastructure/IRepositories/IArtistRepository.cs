@@ -2,7 +2,7 @@
 using Entities;
 using Infrastructure.CRUD;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.IRepositories
 {
     public interface IArtistRepository : ICanAddEntity<ArtistData>, ICanGetEntity<ArtistData>,
         ICanUpdateEntity<ArtistData>,

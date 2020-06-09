@@ -2,7 +2,7 @@
 using Entities;
 using Infrastructure.CRUD;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.IRepositories
 {
     public interface IAlbumRepository : ICanAddEntity<Album>, ICanGetEntity<Album>, ICanUpdateEntity<Album>,
         ICanRemoveEntity<Album>, ICanGetAll<Album>
