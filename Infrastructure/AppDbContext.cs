@@ -23,5 +23,6 @@ namespace Infrastructure
         public DbSet<TrackToArtist> TracksToArtists { get; set; }
         public DbSet<TrackToPlaylist> TracksToPlaylists { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserLibrary> UserLibraries { get; set; }
     }
 }
