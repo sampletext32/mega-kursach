@@ -77,24 +77,15 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Playlists",
+                name: "UserLibraries",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ArtId = table.Column<int>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                        .Annotation("SqlServer:Identity", "1, 1")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Playlists", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Playlists_Arts_ArtId",
-                        column: x => x.ArtId,
-                        principalTable: "Arts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PK_UserLibraries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,16 +109,45 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Playlists",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    ArtId = table.Column<int>(nullable: true),
+                    OwnerLibraryId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Playlists", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Playlists_Arts_ArtId",
+                        column: x => x.ArtId,
+                        principalTable: "Arts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Playlists_UserLibraries_OwnerLibraryId",
+                        column: x => x.OwnerLibraryId,
+                        principalTable: "UserLibraries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Albums",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ArtId = table.Column<int>(nullable: true),
-                    ReleaseDate = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true),
+                    ReleaseDate = table.Column<DateTime>(nullable: false),
+                    ArtId = table.Column<int>(nullable: true),
                     GenreId = table.Column<int>(nullable: true),
-                    DistributorId = table.Column<int>(nullable: true)
+                    DistributorId = table.Column<int>(nullable: true),
+                    UserLibraryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -148,6 +168,12 @@ namespace Infrastructure.Data.Migrations
                         name: "FK_Albums_Genres_GenreId",
                         column: x => x.GenreId,
                         principalTable: "Genres",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Albums_UserLibraries_UserLibraryId",
+                        column: x => x.UserLibraryId,
+                        principalTable: "UserLibraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -187,7 +213,8 @@ namespace Infrastructure.Data.Migrations
                     Email = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     CommonUserDataId = table.Column<int>(nullable: true),
-                    DistributorDataId = table.Column<int>(nullable: true)
+                    DistributorDataId = table.Column<int>(nullable: true),
+                    UserLibraryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -202,6 +229,12 @@ namespace Infrastructure.Data.Migrations
                         name: "FK_Users_DistributorDatas_DistributorDataId",
                         column: x => x.DistributorDataId,
                         principalTable: "DistributorDatas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Users_UserLibraries_UserLibraryId",
+                        column: x => x.UserLibraryId,
+                        principalTable: "UserLibraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -297,6 +330,11 @@ namespace Infrastructure.Data.Migrations
                 column: "GenreId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Albums_UserLibraryId",
+                table: "Albums",
+                column: "UserLibraryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ArtistToDistributors_ArtistId",
                 table: "ArtistToDistributors",
                 column: "ArtistId");
@@ -315,6 +353,11 @@ namespace Infrastructure.Data.Migrations
                 name: "IX_Playlists_ArtId",
                 table: "Playlists",
                 column: "ArtId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Playlists_OwnerLibraryId",
+                table: "Playlists",
+                column: "OwnerLibraryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tracks_AlbumId",
@@ -350,6 +393,11 @@ namespace Infrastructure.Data.Migrations
                 name: "IX_Users_DistributorDataId",
                 table: "Users",
                 column: "DistributorDataId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_UserLibraryId",
+                table: "Users",
+                column: "UserLibraryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -389,6 +437,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Genres");
+
+            migrationBuilder.DropTable(
+                name: "UserLibraries");
 
             migrationBuilder.DropTable(
                 name: "Countries");

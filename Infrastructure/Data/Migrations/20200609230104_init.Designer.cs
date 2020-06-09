@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200609165224_init")]
+    [Migration("20200609230104_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserLibraryId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ArtId");
@@ -50,6 +53,8 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("DistributorId");
 
                     b.HasIndex("GenreId");
+
+                    b.HasIndex("UserLibraryId");
 
                     b.ToTable("Albums");
                 });
@@ -196,12 +201,17 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OwnerLibraryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ArtId");
+
+                    b.HasIndex("OwnerLibraryId");
 
                     b.ToTable("Playlists");
                 });
@@ -298,13 +308,30 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserLibraryId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CommonUserDataId");
 
                     b.HasIndex("DistributorDataId");
 
+                    b.HasIndex("UserLibraryId");
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Entities.UserLibrary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserLibraries");
                 });
 
             modelBuilder.Entity("Entities.Album", b =>
@@ -320,6 +347,10 @@ namespace Infrastructure.Data.Migrations
                     b.HasOne("Entities.Genre", "Genre")
                         .WithMany()
                         .HasForeignKey("GenreId");
+
+                    b.HasOne("Entities.UserLibrary", null)
+                        .WithMany("Albums")
+                        .HasForeignKey("UserLibraryId");
                 });
 
             modelBuilder.Entity("Entities.ArtistToDistributor", b =>
@@ -345,6 +376,10 @@ namespace Infrastructure.Data.Migrations
                     b.HasOne("Entities.Art", "Art")
                         .WithMany()
                         .HasForeignKey("ArtId");
+
+                    b.HasOne("Entities.UserLibrary", "OwnerLibrary")
+                        .WithMany("Playlists")
+                        .HasForeignKey("OwnerLibraryId");
                 });
 
             modelBuilder.Entity("Entities.Track", b =>
@@ -385,6 +420,10 @@ namespace Infrastructure.Data.Migrations
                     b.HasOne("Entities.DistributorData", "DistributorData")
                         .WithMany()
                         .HasForeignKey("DistributorDataId");
+
+                    b.HasOne("Entities.UserLibrary", "UserLibrary")
+                        .WithMany()
+                        .HasForeignKey("UserLibraryId");
                 });
 #pragma warning restore 612, 618
         }
