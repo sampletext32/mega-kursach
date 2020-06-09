@@ -4,7 +4,7 @@ using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
 {
-    public interface ITrackRepository : ICanAddEntity<Track>, ICanGetEntity<Track>, ICanUpdateEntity<Track>,
+    public interface ITrackRepository : ICanAddEntity<Track>, ICanGetEntityById<Track>, ICanUpdateEntity<Track>,
         ICanRemoveEntity<Track>, ICanGetAll<Track>
     {
         ICollection<Track> GetByTitle(int title);

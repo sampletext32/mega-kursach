@@ -4,7 +4,7 @@ using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
 {
-    public interface IAlbumRepository : ICanAddEntity<Album>, ICanGetEntity<Album>, ICanUpdateEntity<Album>,
+    public interface IAlbumRepository : ICanAddEntity<Album>, ICanGetEntityById<Album>, ICanUpdateEntity<Album>,
         ICanRemoveEntity<Album>, ICanGetAll<Album>
     {
         ICollection<Album> GetByReleaseDate(int releaseDate);

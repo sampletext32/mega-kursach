@@ -4,7 +4,7 @@ using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
 {
-    public interface IArtRepository : ICanAddEntity<Art>, ICanGetEntity<Art>, ICanUpdateEntity<Art>,
+    public interface IArtRepository : ICanAddEntity<Art>, ICanGetEntityById<Art>, ICanUpdateEntity<Art>,
         ICanRemoveEntity<Art>, ICanGetAll<Art>
     {
     }

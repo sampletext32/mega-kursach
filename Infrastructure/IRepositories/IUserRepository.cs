@@ -4,7 +4,7 @@ using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
 {
-    public interface IUserRepository : ICanAddEntity<User>, ICanGetEntity<User>, ICanUpdateEntity<User>,
+    public interface IUserRepository : ICanAddEntity<User>, ICanGetEntityById<User>, ICanUpdateEntity<User>,
         ICanRemoveEntity<User>, ICanGetAll<User>
     {
         User GetByLoginAndPassword(string login, string password);

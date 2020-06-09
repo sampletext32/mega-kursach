@@ -4,7 +4,7 @@ using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
 {
-    public interface IPlaylistRepository : ICanAddEntity<Playlist>, ICanGetEntity<Playlist>, ICanUpdateEntity<Playlist>,
+    public interface IPlaylistRepository : ICanAddEntity<Playlist>, ICanGetEntityById<Playlist>, ICanUpdateEntity<Playlist>,
         ICanRemoveEntity<Playlist>, ICanGetAll<Playlist>
     {
         ICollection<Playlist> GetByTitle(int title);
