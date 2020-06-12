@@ -9,7 +9,7 @@
             DbContext = dbContext;
         }
 
-        public virtual TEntity DbGet(int id)
+        public virtual TEntity DbGetById(int id)
         {
             return DbContext.Find<TEntity>(id);
         }
