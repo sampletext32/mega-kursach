@@ -3,7 +3,7 @@ using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
 {
-    public interface IUserLibrary : ICanAddEntity<UserLibrary>, ICanGetEntityById<UserLibrary>, ICanUpdateEntity<UserLibrary>,
+    public interface IUserLibraryRepository : ICanAddEntity<UserLibrary>, ICanGetEntityById<UserLibrary>, ICanUpdateEntity<UserLibrary>,
         ICanRemoveEntity<UserLibrary>, ICanGetAll<UserLibrary>
     {
     }
