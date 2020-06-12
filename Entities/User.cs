@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Entities
 {
-    public enum UserRole : int
+    public class User
     {
-        Admin = 1,
-        Distributor = 2,
-        Artist = 3,
-        Client = 4
-    }
-
-    public abstract class User : AuditableEntity
-    {
-        public UserRole Role { get; set; }
-
-        public string Nickname { get; set; }
+        public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public virtual CommonUserData CommonUserData { get; set; }
+        public virtual DistributorData DistributorData { get; set; }
+        public virtual UserLibrary UserLibrary { get; set; }
 
-        public User(UserRole role, string nickname, string password, string email)
+        public User(
+            string email,
+            string password,
+            CommonUserData commonUserData,
+            DistributorData distributorData,
+            UserLibrary userLibrary)
         {
-            Role = role;
-            Nickname = nickname;
-            Password = password;
             Email = email;
+            Password = password;
+            CommonUserData = commonUserData;
+            DistributorData = distributorData;
+            UserLibrary = userLibrary;
         }
 
         public User()

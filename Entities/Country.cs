@@ -4,17 +4,17 @@ using System.Text;
 
 namespace Entities
 {
-    public class Art
+    public class Country
     {
         public int Id { get; set; }
-        public string Path { get; set; }
+        public string Title { get; set; }
 
-        public Art(string path)
+        public Country(string title)
         {
-            Path = path;
+            Title = title;
         }
 
-        public Art()
+        public Country()
         {
         }
     }

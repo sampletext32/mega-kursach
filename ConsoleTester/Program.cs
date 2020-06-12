@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore.Design;
 using System;
 using Entities;
 using Infrastructure;
-using Infrastructure.IRepositories;
-using Infrastructure.Repositories;
+//using Infrastructure.IRepositories;
+//using Infrastructure.Repositories;
 
 namespace ConsoleTester
 {
@@ -24,37 +24,41 @@ namespace ConsoleTester
     class Program
     {
         private static readonly AppDbContext _appContext;
-        private static IAdminRepository _adminRepository;
-        private static IAlbumRepository _albumRepository;
-        private static IArtistRepository _artistRepository;
-        private static IArtRepository _artRepository;
-        private static IClientRepository _clientRepository;
-        private static IDistributorRepository _distributorRepository;
-        private static IGenreRepository _genreRepository;
-        private static IPlaylistRepository _playlistRepository;
-        private static ITrackRepository _trackRepository;
+        //private static IAdminRepository _adminRepository;
+        //private static IAlbumRepository _albumRepository;
+        //private static IArtistRepository _artistRepository;
+        //private static IArtRepository _artRepository;
+        //private static IClientRepository _clientRepository;
+        //private static IDistributorRepository _distributorRepository;
+        //private static IGenreRepository _genreRepository;
+        //private static IPlaylistRepository _playlistRepository;
+        //private static ITrackRepository _trackRepository;
 
         static Program()
         {
             AppDbContextFactory factory = new AppDbContextFactory();
             _appContext = factory.CreateDbContext(null);
-            _adminRepository = new AdminRepository(_appContext);
-            _albumRepository = new AlbumRepository(_appContext);
-            _artistRepository = new ArtistRepository(_appContext);
-            _artRepository = new ArtRepository(_appContext);
-            _clientRepository = new ClientRepository(_appContext);
-            _distributorRepository = new DistributorRepository(_appContext);
-            _genreRepository = new GenreRepository(_appContext);
-            _playlistRepository = new PlaylistRepository(_appContext);
-            _trackRepository = new TrackRepository(_appContext);
+            //_adminRepository = new AdminRepository(_appContext);
+            //_albumRepository = new AlbumRepository(_appContext);
+            //_artistRepository = new ArtistRepository(_appContext);
+            //_artRepository = new ArtRepository(_appContext);
+            //_clientRepository = new ClientRepository(_appContext);
+            //_distributorRepository = new DistributorRepository(_appContext);
+            //_genreRepository = new GenreRepository(_appContext);
+            //_playlistRepository = new PlaylistRepository(_appContext);
+            //_trackRepository = new TrackRepository(_appContext);
         }
 
         static void Main(string[] args)
         {
             Console.WriteLine("Start!");
 
-            Genre genre = new Genre(0, "Dubstep");
-            _genreRepository.Add(genre);
+            //_genreRepository.Add(new Genre(0, "Dubstep"));
+
+            //foreach (var genre in _genreRepository.GetAll())
+            //{
+            //    Console.WriteLine(genre.Title);
+            //}
         }
     }
 }

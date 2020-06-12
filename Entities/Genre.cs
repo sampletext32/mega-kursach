@@ -1,9 +1,17 @@
-﻿namespace Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Entities
 {
-    public class Genre : TitledEntity
+    public class Genre
     {
-        public Genre(string title) : base(title)
+        public int Id { get; set; }
+        public string Title { get; set; }
+
+        public Genre(string title)
         {
+            Title = title;
         }
 
         public Genre()
