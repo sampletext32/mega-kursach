@@ -1,4 +1,6 @@
 using Infrastructure;
+using Infrastructure.IRepositories;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +25,7 @@ namespace WebAsp
             services.AddControllers().AddNewtonsoftJson();
             services.AddControllersWithViews();
 
-            //services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MsSqlConnection")));
