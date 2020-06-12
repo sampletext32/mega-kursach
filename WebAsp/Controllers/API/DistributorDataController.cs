@@ -3,39 +3,39 @@ using Entities;
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.API
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class PlaylistController : ControllerBase
+    public class DistributorDataController : ControllerBase
     {
-        private IPlaylistRepository _repository;
+        private IDistributorDataRepository _repository;
 
-        public PlaylistController(IPlaylistRepository playlistRepository)
+        public DistributorDataController(IDistributorDataRepository distributorDataRepository)
         {
-            _repository = playlistRepository;
+            _repository = distributorDataRepository;
         }
 
         [HttpGet]
-        public IEnumerable<Playlist> Get()
+        public IEnumerable<DistributorData> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public Playlist Get(int id)
+        public DistributorData Get(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] Playlist value)
+        public void Post([FromBody] DistributorData value)
         {
             _repository.Add(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Playlist value)
+        public void Put(int id, [FromBody] DistributorData value)
         {
             value.Id = id;
             _repository.Update(value);

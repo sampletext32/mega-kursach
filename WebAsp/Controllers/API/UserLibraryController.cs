@@ -1,42 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Entities;
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.API
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller")]
     [ApiController]
-    public class ArtController : ControllerBase
+    public class UserLibraryController : ControllerBase
     {
-        private IArtRepository _repository;
+        private IUserLibraryRepository _repository;
 
-        public ArtController(IArtRepository artRepository)
+        public UserLibraryController(IUserLibraryRepository userLibraryRepository)
         {
-            _repository = artRepository;
+            _repository = userLibraryRepository;
         }
 
         [HttpGet]
-        public IEnumerable<Art> Get()
+        public IEnumerable<UserLibrary> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public Art Get(int id)
+        public UserLibrary Get(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] Art value)
+        public void Post([FromBody] UserLibrary value)
         {
             _repository.Add(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Art value)
+        public void Put(int id, [FromBody] UserLibrary value)
         {
             value.Id = id;
             _repository.Update(value);

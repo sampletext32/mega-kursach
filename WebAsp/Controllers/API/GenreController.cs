@@ -3,39 +3,39 @@ using Entities;
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.API
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class UserLibraryController : ControllerBase
+    public class GenreController : ControllerBase
     {
-        private IUserLibraryRepository _repository;
+        private IGenreRepository _repository;
 
-        public UserLibraryController(IUserLibraryRepository userLibraryRepository)
+        public GenreController(IGenreRepository genreRepository)
         {
-            _repository = userLibraryRepository;
+            _repository = genreRepository;
         }
 
         [HttpGet]
-        public IEnumerable<UserLibrary> Get()
+        public IEnumerable<Genre> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public UserLibrary Get(int id)
+        public Genre Get(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] UserLibrary value)
+        public void Post([FromBody] Genre value)
         {
             _repository.Add(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] UserLibrary value)
+        public void Put(int id, [FromBody] Genre value)
         {
             value.Id = id;
             _repository.Update(value);

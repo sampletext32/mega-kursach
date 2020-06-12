@@ -3,38 +3,39 @@ using Entities;
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.API
 {
-    [Route("api/[controller]")]
-    public class AlbumController:ControllerBase
+    [Route("api/[controller")]
+    [ApiController]
+    public class PlaylistController : ControllerBase
     {
-        private IAlbumRepository _repository;
+        private IPlaylistRepository _repository;
 
-        public AlbumController(IAlbumRepository albumRepository)
+        public PlaylistController(IPlaylistRepository playlistRepository)
         {
-            _repository = albumRepository;
+            _repository = playlistRepository;
         }
 
         [HttpGet]
-        public IEnumerable<Album> Get()
+        public IEnumerable<Playlist> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public Album Get(int id)
+        public Playlist Get(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] Album value)
+        public void Post([FromBody] Playlist value)
         {
             _repository.Add(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Album value)
+        public void Put(int id, [FromBody] Playlist value)
         {
             value.Id = id;
             _repository.Update(value);
@@ -44,6 +45,6 @@ namespace WebAsp.Controllers
         public void Delete(int id)
         {
             _repository.Remove(_repository.GetById(id));
-        }   
+        }
     }
 }

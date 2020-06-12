@@ -3,39 +3,38 @@ using Entities;
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.API
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class DistributorDataController : ControllerBase
+    public class AlbumController : ControllerBase
     {
-        private IDistributorDataRepository _repository;
+        private IAlbumRepository _repository;
 
-        public DistributorDataController(IDistributorDataRepository distributorDataRepository)
+        public AlbumController(IAlbumRepository albumRepository)
         {
-            _repository = distributorDataRepository;
+            _repository = albumRepository;
         }
 
         [HttpGet]
-        public IEnumerable<DistributorData> Get()
+        public IEnumerable<Album> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public DistributorData Get(int id)
+        public Album Get(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] DistributorData value)
+        public void Post([FromBody] Album value)
         {
             _repository.Add(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] DistributorData value)
+        public void Put(int id, [FromBody] Album value)
         {
             value.Id = id;
             _repository.Update(value);

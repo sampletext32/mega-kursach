@@ -3,39 +3,39 @@ using Entities;
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.API
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class ArtistDataController : ControllerBase
+    public class ArtController : ControllerBase
     {
-        private IArtistDataRepository _repository;
+        private IArtRepository _repository;
 
-        public ArtistDataController(IArtistDataRepository artistDataRepository)
+        public ArtController(IArtRepository artRepository)
         {
-            _repository = artistDataRepository;
+            _repository = artRepository;
         }
 
         [HttpGet]
-        public IEnumerable<ArtistData> Get()
+        public IEnumerable<Art> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public ArtistData Get(int id)
+        public Art Get(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] ArtistData value)
+        public void Post([FromBody] Art value)
         {
             _repository.Add(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] ArtistData value)
+        public void Put(int id, [FromBody] Art value)
         {
             value.Id = id;
             _repository.Update(value);

@@ -2,7 +2,7 @@
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.HTML
 {
     [Route("html/[controller")]
     public class HtmlArtController : Controller

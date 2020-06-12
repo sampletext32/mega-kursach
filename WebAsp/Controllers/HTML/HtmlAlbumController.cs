@@ -2,23 +2,23 @@
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.HTML
 {
     [Route("html/[controller]")]
-    public class HtmlUserLibraryController : Controller
+    public class HtmlAlbumController : Controller
     {
-        private IUserLibraryRepository _repository;
+        private IAlbumRepository _repository;
 
-        public HtmlUserLibraryController(IUserLibraryRepository userLibraryRepository)
+        public HtmlAlbumController(IAlbumRepository albumRepository)
         {
-            _repository = userLibraryRepository;
+            _repository = albumRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var libraries = _repository.GetAll();
-            return View(libraries);
+            var albums = _repository.GetAll();
+            return View(albums);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] UserLibrary library)
+        public ActionResult Create([FromForm] Album album)
         {
             try
             {
-                _repository.Add(library);
+                _repository.Add(album);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] UserLibrary library)
+        public ActionResult Edit(int id, [FromForm] Album album)
         {
             try
             {
-                _repository.Update(library);
+                _repository.Update(album);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            UserLibrary library = _repository.GetById(id);
-            if (library != null)
+            Album album = _repository.GetById(id);
+            if (album != null)
             {
-                _repository.Remove(library);
+                _repository.Remove(album);
             }
 
             return RedirectToAction("Index");

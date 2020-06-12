@@ -2,23 +2,23 @@
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.HTML
 {
-    [Route("html/[controller")]
-    public class HtmlArtistDataController : Controller
+    [Route("html/[controller]")]
+    public class HtmlGenreController : Controller
     {
-        private IArtistDataRepository _repository;
+        private IGenreRepository _repository;
 
-        public HtmlArtistDataController(IArtistDataRepository artistDataRepository)
+        public HtmlGenreController(IGenreRepository genreRepository)
         {
-            _repository = artistDataRepository;
+            _repository = genreRepository;
         }
-        
+
         [HttpGet]
         public ActionResult Index()
         {
-            var artists = _repository.GetAll();
-            return View(artists);
+            var tracks = _repository.GetAll();
+            return View(tracks);
         }
 
         [HttpGet("{id}")]
@@ -27,20 +27,13 @@ namespace WebAsp.Controllers
             return View(_repository.GetById(id));
         }
 
-        [HttpGet("create")]
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] ArtistData artist)
+        public ActionResult Create([FromForm] Genre genre)
         {
             try
             {
-                _repository.Add(artist);
-
+                _repository.Add(genre);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -57,11 +50,11 @@ namespace WebAsp.Controllers
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] ArtistData artist)
+        public ActionResult Edit(int id, [FromForm] Genre genre)
         {
             try
             {
-                _repository.Update(artist);
+                _repository.Update(genre);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +67,10 @@ namespace WebAsp.Controllers
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            ArtistData artist = _repository.GetById(id);
-            if (artist != null)
+            Genre genre = _repository.GetById(id);
+            if (genre != null)
             {
-                _repository.Remove(artist);
+                _repository.Remove(genre);
             }
 
             return RedirectToAction("Index");

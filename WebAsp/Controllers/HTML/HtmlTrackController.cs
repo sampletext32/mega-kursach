@@ -2,16 +2,16 @@
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.HTML
 {
-    [Route("html/[controller]")]
-    public class HtmlGenreController : Controller
+    [Microsoft.AspNetCore.Components.Route("html/[controller]")]
+    public class HtmlTrackController : Controller
     {
-        private IGenreRepository _repository;
+        private ITrackRepository _repository;
 
-        public HtmlGenreController(IGenreRepository genreRepository)
+        public HtmlTrackController(ITrackRepository trackRepository)
         {
-            _repository = genreRepository;
+            _repository = trackRepository;
         }
 
         [HttpGet]
@@ -27,13 +27,20 @@ namespace WebAsp.Controllers
             return View(_repository.GetById(id));
         }
 
+        [HttpGet("create")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Genre genre)
+        public ActionResult Create([FromForm] Track track)
         {
             try
             {
-                _repository.Add(genre);
+                _repository.Add(track);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -48,13 +55,14 @@ namespace WebAsp.Controllers
             return View(_repository.GetById(id));
         }
 
+
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Genre genre)
+        public ActionResult Edit(int id, [FromForm] Track track)
         {
             try
             {
-                _repository.Update(genre);
+                _repository.Update(track);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -67,10 +75,10 @@ namespace WebAsp.Controllers
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Genre genre = _repository.GetById(id);
-            if (genre != null)
+            Track track = _repository.GetById(id);
+            if (track != null)
             {
-                _repository.Remove(genre);
+                _repository.Remove(track);
             }
 
             return RedirectToAction("Index");

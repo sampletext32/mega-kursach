@@ -2,23 +2,23 @@
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.HTML
 {
-    [Route("html/[controller]")]
-    public class HtmlPlaylistController : Controller
+    [Route("api/[controller]")]
+    public class HtmlDistributorDataController : Controller
     {
-        private IPlaylistRepository _repository;
+        private IDistributorDataRepository _repository;
 
-        public HtmlPlaylistController(IPlaylistRepository playlistRepository)
+        public HtmlDistributorDataController(IDistributorDataRepository distributorDataRepository)
         {
-            _repository = playlistRepository;
+            _repository = distributorDataRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var playlists = _repository.GetAll();
-            return View(playlists);
+            var distributors = _repository.GetAll();
+            return View(distributors);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Playlist playlist)
+        public ActionResult Create([FromForm] DistributorData distributors)
         {
             try
             {
-                _repository.Add(playlist);
+                _repository.Add(distributors);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Playlist playlist)
+        public ActionResult Edit(int id, [FromForm] DistributorData distributor)
         {
             try
             {
-                _repository.Update(playlist);
+                _repository.Update(distributor);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Playlist playlist = _repository.GetById(id);
-            if (playlist != null)
+            DistributorData distributor = _repository.GetById(id);
+            if (distributor != null)
             {
-                _repository.Remove(playlist);
+                _repository.Remove(distributor);
             }
 
             return RedirectToAction("Index");

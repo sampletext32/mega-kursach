@@ -2,44 +2,48 @@
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.HTML
 {
     [Route("html/[controller]")]
-    public class HtmlAlbumController : Controller
+    public class HtmlCountryController : Controller
     {
-        private IAlbumRepository _repository;
+        private ICountryRepository _repository;
 
-        public HtmlAlbumController(IAlbumRepository albumRepository)
+        public HtmlCountryController(ICountryRepository countryRepository)
         {
-            _repository = albumRepository;
+            _repository = countryRepository;
         }
 
+        // GET: HtmlCountryController
         [HttpGet]
         public ActionResult Index()
         {
-            var albums = _repository.GetAll();
-            return View(albums);
+            var countries = _repository.GetAll();
+            return View(countries);
         }
 
+        // GET: HtmlCountryController/Details/5
         [HttpGet("{id}")]
         public ActionResult Details(int id)
         {
             return View(_repository.GetById(id));
         }
 
+        // GET: HtmlCountryController/Create
         [HttpGet("create")]
         public ActionResult Create()
         {
             return View();
         }
 
+        // POST: HtmlCountryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Album album)
+        public ActionResult Create([FromForm] Country country)
         {
             try
             {
-                _repository.Add(album);
+                _repository.Add(country);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -49,19 +53,21 @@ namespace WebAsp.Controllers
             }
         }
 
+        // GET: HtmlCountryController/Edit/5
         [HttpGet("edit/{id}")]
         public ActionResult Edit(int id)
         {
             return View(_repository.GetById(id));
         }
 
+        // POST: HtmlCountryController/Edit/5
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Album album)
+        public ActionResult Edit(int id, [FromForm] Country country)
         {
             try
             {
-                _repository.Update(album);
+                _repository.Update(country);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -71,13 +77,14 @@ namespace WebAsp.Controllers
             }
         }
 
+        // GET: HtmlCountryController/Delete/5
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Album album = _repository.GetById(id);
-            if (album != null)
+            Country country = _repository.GetById(id);
+            if (country != null)
             {
-                _repository.Remove(album);
+                _repository.Remove(country);
             }
 
             return RedirectToAction("Index");

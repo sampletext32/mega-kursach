@@ -1,42 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Entities;
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GenreController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private IGenreRepository _repository;
+        private IUserRepository _repository;
 
-        public GenreController(IGenreRepository genreRepository)
+        public UserController(IUserRepository userRepository)
         {
-            _repository = genreRepository;
+            _repository = userRepository;
         }
 
         [HttpGet]
-        public IEnumerable<Genre> Get()
+        public IEnumerable<User> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public Genre Get(int id)
+        public User Get(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] Genre value)
+        public void Post([FromBody] User value)
         {
             _repository.Add(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Genre value)
+        public void Put(int id, [FromBody] User value)
         {
             value.Id = id;
             _repository.Update(value);

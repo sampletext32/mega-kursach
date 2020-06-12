@@ -2,23 +2,23 @@
 using Infrastructure.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAsp.Controllers
+namespace WebAsp.Controllers.HTML
 {
-    [Route("api/[controller]")]
-    public class HtmlDistributorDataController : Controller
+    [Route("html/[controller]")]
+    public class HtmlUserLibraryController : Controller
     {
-        private IDistributorDataRepository _repository;
+        private IUserLibraryRepository _repository;
 
-        public HtmlDistributorDataController(IDistributorDataRepository distributorDataRepository)
+        public HtmlUserLibraryController(IUserLibraryRepository userLibraryRepository)
         {
-            _repository = distributorDataRepository;
+            _repository = userLibraryRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var distributors = _repository.GetAll();
-            return View(distributors);
+            var libraries = _repository.GetAll();
+            return View(libraries);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] DistributorData distributors)
+        public ActionResult Create([FromForm] UserLibrary library)
         {
             try
             {
-                _repository.Add(distributors);
+                _repository.Add(library);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] DistributorData distributor)
+        public ActionResult Edit(int id, [FromForm] UserLibrary library)
         {
             try
             {
-                _repository.Update(distributor);
+                _repository.Update(library);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            DistributorData distributor = _repository.GetById(id);
-            if (distributor != null)
+            UserLibrary library = _repository.GetById(id);
+            if (library != null)
             {
-                _repository.Remove(distributor);
+                _repository.Remove(library);
             }
 
             return RedirectToAction("Index");
