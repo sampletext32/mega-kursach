@@ -19,6 +19,7 @@ namespace WebAsp.Controllers
             _repository = countryRepository;
         }
 
+        // GET: HtmlCountryController
         [HttpGet]
         public ActionResult Index()
         {
@@ -26,20 +27,22 @@ namespace WebAsp.Controllers
             return View(countries);
         }
 
-
+        // GET: HtmlCountryController/Details/5
         [HttpGet("{id}")]
         public ActionResult Details(int id)
         {
             return View(_repository.GetById(id));
         }
 
+        // GET: HtmlCountryController/Create
         [HttpGet("create")]
         public ActionResult Create()
         {
             return View();
         }
 
-        [HttpPost("create")]
+        // POST: HtmlCountryController/Create
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] Country country)
         {
@@ -55,12 +58,14 @@ namespace WebAsp.Controllers
             }
         }
 
+        // GET: HtmlCountryController/Edit/5
         [HttpGet("edit/{id}")]
         public ActionResult Edit(int id)
         {
             return View(_repository.GetById(id));
         }
 
+        // POST: HtmlCountryController/Edit/5
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, [FromForm] Country country)
@@ -77,6 +82,7 @@ namespace WebAsp.Controllers
             }
         }
 
+        // GET: HtmlCountryController/Delete/5
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
