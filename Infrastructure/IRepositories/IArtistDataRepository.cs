@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Entities;
+﻿using Entities;
 using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
@@ -8,7 +7,5 @@ namespace Infrastructure.IRepositories
         ICanUpdateEntity<ArtistData>,
         ICanRemoveEntity<ArtistData>, ICanGetAll<ArtistData>
     {
-        ICollection<ArtistData> GetByNickname(int nickname);
-        ICollection<ArtistData> GetByTrack(int trackId);
     }
 }

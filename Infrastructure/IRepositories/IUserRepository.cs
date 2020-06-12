@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Entities;
+﻿using Entities;
 using Infrastructure.CRUD;
 
 namespace Infrastructure.IRepositories
@@ -7,7 +6,5 @@ namespace Infrastructure.IRepositories
     public interface IUserRepository : ICanAddEntity<User>, ICanGetEntityById<User>, ICanUpdateEntity<User>,
         ICanRemoveEntity<User>, ICanGetAll<User>
     {
-        User GetByLoginAndPassword(string login, string password);
-        ICollection<User> Search(string query);
     }
 }
