@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAsp.Controllers.API
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ArtistDataController : ControllerBase
     {

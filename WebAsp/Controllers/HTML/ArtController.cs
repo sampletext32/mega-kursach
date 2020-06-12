@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAsp.Controllers.HTML
 {
-    [Route("html/[controller")]
+    [Route("html/[controller]")]
     public class ArtController : Controller
     {
         private IArtRepository _repository;
