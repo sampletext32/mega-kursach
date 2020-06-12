@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAsp.Controllers.HTML
 {
     [Route("html/[controller]")]
-    public class HtmlPlaylistController : Controller
+    public class UserLibraryController : Controller
     {
-        private IPlaylistRepository _repository;
+        private IUserLibraryRepository _repository;
 
-        public HtmlPlaylistController(IPlaylistRepository playlistRepository)
+        public UserLibraryController(IUserLibraryRepository userLibraryRepository)
         {
-            _repository = playlistRepository;
+            _repository = userLibraryRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var playlists = _repository.GetAll();
-            return View(playlists);
+            var libraries = _repository.GetAll();
+            return View(libraries);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Playlist playlist)
+        public ActionResult Create([FromForm] UserLibrary library)
         {
             try
             {
-                _repository.Add(playlist);
+                _repository.Add(library);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Playlist playlist)
+        public ActionResult Edit(int id, [FromForm] UserLibrary library)
         {
             try
             {
-                _repository.Update(playlist);
+                _repository.Update(library);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers.HTML
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Playlist playlist = _repository.GetById(id);
-            if (playlist != null)
+            UserLibrary library = _repository.GetById(id);
+            if (library != null)
             {
-                _repository.Remove(playlist);
+                _repository.Remove(library);
             }
 
             return RedirectToAction("Index");

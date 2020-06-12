@@ -4,42 +4,46 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAsp.Controllers.HTML
 {
-    [Microsoft.AspNetCore.Components.Route("html/[controller]")]
-    public class HtmlTrackController : Controller
+    [Route("html/[controller]")]
+    public class CountryController : Controller
     {
-        private ITrackRepository _repository;
+        private ICountryRepository _repository;
 
-        public HtmlTrackController(ITrackRepository trackRepository)
+        public CountryController(ICountryRepository countryRepository)
         {
-            _repository = trackRepository;
+            _repository = countryRepository;
         }
 
+        // GET: CountryController
         [HttpGet]
         public ActionResult Index()
         {
-            var tracks = _repository.GetAll();
-            return View(tracks);
+            var countries = _repository.GetAll();
+            return View(countries);
         }
 
+        // GET: CountryController/Details/5
         [HttpGet("{id}")]
         public ActionResult Details(int id)
         {
             return View(_repository.GetById(id));
         }
 
+        // GET: CountryController/Create
         [HttpGet("create")]
         public ActionResult Create()
         {
             return View();
         }
 
+        // POST: CountryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Track track)
+        public ActionResult Create([FromForm] Country country)
         {
             try
             {
-                _repository.Add(track);
+                _repository.Add(country);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -49,20 +53,21 @@ namespace WebAsp.Controllers.HTML
             }
         }
 
+        // GET: CountryController/Edit/5
         [HttpGet("edit/{id}")]
         public ActionResult Edit(int id)
         {
             return View(_repository.GetById(id));
         }
 
-
+        // POST: CountryController/Edit/5
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Track track)
+        public ActionResult Edit(int id, [FromForm] Country country)
         {
             try
             {
-                _repository.Update(track);
+                _repository.Update(country);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -72,13 +77,14 @@ namespace WebAsp.Controllers.HTML
             }
         }
 
+        // GET: CountryController/Delete/5
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Track track = _repository.GetById(id);
-            if (track != null)
+            Country country = _repository.GetById(id);
+            if (country != null)
             {
-                _repository.Remove(track);
+                _repository.Remove(country);
             }
 
             return RedirectToAction("Index");

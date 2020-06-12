@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAsp.Controllers.HTML
 {
     [Route("html/[controller")]
-    public class HtmlArtController : Controller
+    public class UserController : Controller
     {
-        private IArtRepository _repository;
+        private IUserRepository _repository;
 
-        public HtmlArtController(IArtRepository artRepository)
+        public UserController(IUserRepository userRepository)
         {
-            _repository = artRepository;
+            _repository = userRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var arts = _repository.GetAll();
-            return View(arts);
+            var users = _repository.GetAll();
+            return View(users);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Art art)
+        public ActionResult Create([FromForm] User user)
         {
             try
             {
-                _repository.Add(art);
+                _repository.Add(user);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Art art)
+        public ActionResult Edit(int id, [FromForm] User user)
         {
             try
             {
-                _repository.Update(art);
+                _repository.Update(user);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers.HTML
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Art art = _repository.GetById(id);
-            if (art != null)
+            User user = _repository.GetById(id);
+            if (user != null)
             {
-                _repository.Remove(art);
+                _repository.Remove(user);
             }
 
             return RedirectToAction("Index");

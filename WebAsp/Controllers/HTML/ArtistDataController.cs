@@ -4,21 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAsp.Controllers.HTML
 {
-    [Route("api/[controller]")]
-    public class HtmlDistributorDataController : Controller
+    [Route("html/[controller")]
+    public class ArtistDataController : Controller
     {
-        private IDistributorDataRepository _repository;
+        private IArtistDataRepository _repository;
 
-        public HtmlDistributorDataController(IDistributorDataRepository distributorDataRepository)
+        public ArtistDataController(IArtistDataRepository artistDataRepository)
         {
-            _repository = distributorDataRepository;
+            _repository = artistDataRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var distributors = _repository.GetAll();
-            return View(distributors);
+            var artists = _repository.GetAll();
+            return View(artists);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] DistributorData distributors)
+        public ActionResult Create([FromForm] ArtistData artist)
         {
             try
             {
-                _repository.Add(distributors);
+                _repository.Add(artist);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] DistributorData distributor)
+        public ActionResult Edit(int id, [FromForm] ArtistData artist)
         {
             try
             {
-                _repository.Update(distributor);
+                _repository.Update(artist);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers.HTML
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            DistributorData distributor = _repository.GetById(id);
-            if (distributor != null)
+            ArtistData artist = _repository.GetById(id);
+            if (artist != null)
             {
-                _repository.Remove(distributor);
+                _repository.Remove(artist);
             }
 
             return RedirectToAction("Index");

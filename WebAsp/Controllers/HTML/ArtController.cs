@@ -4,21 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAsp.Controllers.HTML
 {
-    [Route("html/[controller]")]
-    public class HtmlAlbumController : Controller
+    [Route("html/[controller")]
+    public class ArtController : Controller
     {
-        private IAlbumRepository _repository;
+        private IArtRepository _repository;
 
-        public HtmlAlbumController(IAlbumRepository albumRepository)
+        public ArtController(IArtRepository artRepository)
         {
-            _repository = albumRepository;
+            _repository = artRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var albums = _repository.GetAll();
-            return View(albums);
+            var arts = _repository.GetAll();
+            return View(arts);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Album album)
+        public ActionResult Create([FromForm] Art art)
         {
             try
             {
-                _repository.Add(album);
+                _repository.Add(art);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Album album)
+        public ActionResult Edit(int id, [FromForm] Art art)
         {
             try
             {
-                _repository.Update(album);
+                _repository.Update(art);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers.HTML
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Album album = _repository.GetById(id);
-            if (album != null)
+            Art art = _repository.GetById(id);
+            if (art != null)
             {
-                _repository.Remove(album);
+                _repository.Remove(art);
             }
 
             return RedirectToAction("Index");

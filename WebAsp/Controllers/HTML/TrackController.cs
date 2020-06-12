@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAsp.Controllers.HTML
 {
     [Route("html/[controller]")]
-    public class HtmlUserLibraryController : Controller
+    public class TrackController : Controller
     {
-        private IUserLibraryRepository _repository;
+        private ITrackRepository _repository;
 
-        public HtmlUserLibraryController(IUserLibraryRepository userLibraryRepository)
+        public TrackController(ITrackRepository trackRepository)
         {
-            _repository = userLibraryRepository;
+            _repository = trackRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var libraries = _repository.GetAll();
-            return View(libraries);
+            var tracks = _repository.GetAll();
+            return View(tracks);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] UserLibrary library)
+        public ActionResult Create([FromForm] Track track)
         {
             try
             {
-                _repository.Add(library);
+                _repository.Add(track);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -55,13 +55,14 @@ namespace WebAsp.Controllers.HTML
             return View(_repository.GetById(id));
         }
 
+
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] UserLibrary library)
+        public ActionResult Edit(int id, [FromForm] Track track)
         {
             try
             {
-                _repository.Update(library);
+                _repository.Update(track);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +75,10 @@ namespace WebAsp.Controllers.HTML
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            UserLibrary library = _repository.GetById(id);
-            if (library != null)
+            Track track = _repository.GetById(id);
+            if (track != null)
             {
-                _repository.Remove(library);
+                _repository.Remove(track);
             }
 
             return RedirectToAction("Index");

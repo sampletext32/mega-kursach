@@ -4,21 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAsp.Controllers.HTML
 {
-    [Route("html/[controller")]
-    public class HtmlUserController : Controller
+    [Route("api/[controller]")]
+    public class DistributorDataController : Controller
     {
-        private IUserRepository _repository;
+        private IDistributorDataRepository _repository;
 
-        public HtmlUserController(IUserRepository userRepository)
+        public DistributorDataController(IDistributorDataRepository distributorDataRepository)
         {
-            _repository = userRepository;
+            _repository = distributorDataRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var users = _repository.GetAll();
-            return View(users);
+            var distributors = _repository.GetAll();
+            return View(distributors);
         }
 
         [HttpGet("{id}")]
@@ -35,11 +35,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] User user)
+        public ActionResult Create([FromForm] DistributorData distributors)
         {
             try
             {
-                _repository.Add(user);
+                _repository.Add(distributors);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -57,11 +57,11 @@ namespace WebAsp.Controllers.HTML
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] User user)
+        public ActionResult Edit(int id, [FromForm] DistributorData distributor)
         {
             try
             {
-                _repository.Update(user);
+                _repository.Update(distributor);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,10 +74,10 @@ namespace WebAsp.Controllers.HTML
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            User user = _repository.GetById(id);
-            if (user != null)
+            DistributorData distributor = _repository.GetById(id);
+            if (distributor != null)
             {
-                _repository.Remove(user);
+                _repository.Remove(distributor);
             }
 
             return RedirectToAction("Index");

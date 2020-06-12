@@ -5,45 +5,41 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAsp.Controllers.HTML
 {
     [Route("html/[controller]")]
-    public class HtmlCountryController : Controller
+    public class PlaylistController : Controller
     {
-        private ICountryRepository _repository;
+        private IPlaylistRepository _repository;
 
-        public HtmlCountryController(ICountryRepository countryRepository)
+        public PlaylistController(IPlaylistRepository playlistRepository)
         {
-            _repository = countryRepository;
+            _repository = playlistRepository;
         }
 
-        // GET: HtmlCountryController
         [HttpGet]
         public ActionResult Index()
         {
-            var countries = _repository.GetAll();
-            return View(countries);
+            var playlists = _repository.GetAll();
+            return View(playlists);
         }
 
-        // GET: HtmlCountryController/Details/5
         [HttpGet("{id}")]
         public ActionResult Details(int id)
         {
             return View(_repository.GetById(id));
         }
 
-        // GET: HtmlCountryController/Create
         [HttpGet("create")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HtmlCountryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Country country)
+        public ActionResult Create([FromForm] Playlist playlist)
         {
             try
             {
-                _repository.Add(country);
+                _repository.Add(playlist);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -53,21 +49,19 @@ namespace WebAsp.Controllers.HTML
             }
         }
 
-        // GET: HtmlCountryController/Edit/5
         [HttpGet("edit/{id}")]
         public ActionResult Edit(int id)
         {
             return View(_repository.GetById(id));
         }
 
-        // POST: HtmlCountryController/Edit/5
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Country country)
+        public ActionResult Edit(int id, [FromForm] Playlist playlist)
         {
             try
             {
-                _repository.Update(country);
+                _repository.Update(playlist);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -77,14 +71,13 @@ namespace WebAsp.Controllers.HTML
             }
         }
 
-        // GET: HtmlCountryController/Delete/5
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Country country = _repository.GetById(id);
-            if (country != null)
+            Playlist playlist = _repository.GetById(id);
+            if (playlist != null)
             {
-                _repository.Remove(country);
+                _repository.Remove(playlist);
             }
 
             return RedirectToAction("Index");
