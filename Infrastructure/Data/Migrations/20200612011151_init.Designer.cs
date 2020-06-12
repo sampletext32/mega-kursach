@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200609230104_init")]
+    [Migration("20200612011151_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,24 +94,20 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Entities.ArtistToDistributor", b =>
                 {
+                    b.Property<int>("ArtistId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DistributorId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ArtistId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DistributorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ArtistId");
+                    b.HasKey("ArtistId", "DistributorId");
 
                     b.HasIndex("DistributorId");
 
-                    b.ToTable("ArtistToDistributors");
+                    b.ToTable("ArtistToDistributor");
                 });
 
             modelBuilder.Entity("Entities.CommonUserData", b =>
@@ -247,46 +243,38 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Entities.TrackToArtist", b =>
                 {
+                    b.Property<int>("TrackId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArtistId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ArtistId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TrackId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasKey("TrackId", "ArtistId");
 
                     b.HasIndex("ArtistId");
 
-                    b.HasIndex("TrackId");
-
-                    b.ToTable("TracksToArtists");
+                    b.ToTable("TrackToArtist");
                 });
 
             modelBuilder.Entity("Entities.TrackToPlaylist", b =>
                 {
+                    b.Property<int>("TrackId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlaylistId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("PlaylistId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TrackId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasKey("TrackId", "PlaylistId");
 
                     b.HasIndex("PlaylistId");
 
-                    b.HasIndex("TrackId");
-
-                    b.ToTable("TracksToPlaylists");
+                    b.ToTable("TrackToPlaylist");
                 });
 
             modelBuilder.Entity("Entities.User", b =>
@@ -357,11 +345,15 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasOne("Entities.ArtistData", "Artist")
                         .WithMany("Distributors")
-                        .HasForeignKey("ArtistId");
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Entities.DistributorData", "Distributor")
                         .WithMany("Artists")
-                        .HasForeignKey("DistributorId");
+                        .HasForeignKey("DistributorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.DistributorData", b =>
@@ -393,22 +385,30 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasOne("Entities.ArtistData", "Artist")
                         .WithMany("Tracks")
-                        .HasForeignKey("ArtistId");
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Entities.Track", "Track")
                         .WithMany()
-                        .HasForeignKey("TrackId");
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.TrackToPlaylist", b =>
                 {
                     b.HasOne("Entities.Playlist", "Playlist")
                         .WithMany("Tracks")
-                        .HasForeignKey("PlaylistId");
+                        .HasForeignKey("PlaylistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Entities.Track", "Track")
                         .WithMany("Playlists")
-                        .HasForeignKey("TrackId");
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.User", b =>

@@ -179,29 +179,28 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ArtistToDistributors",
+                name: "ArtistToDistributor",
                 columns: table => new
                 {
+                    ArtistId = table.Column<int>(nullable: false),
+                    DistributorId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ArtistId = table.Column<int>(nullable: true),
-                    DistributorId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ArtistToDistributors", x => x.Id);
+                    table.PrimaryKey("PK_ArtistToDistributor", x => new { x.ArtistId, x.DistributorId });
                     table.ForeignKey(
-                        name: "FK_ArtistToDistributors_ArtistDatas_ArtistId",
+                        name: "FK_ArtistToDistributor_ArtistDatas_ArtistId",
                         column: x => x.ArtistId,
                         principalTable: "ArtistDatas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ArtistToDistributors_DistributorDatas_DistributorId",
+                        name: "FK_ArtistToDistributor_DistributorDatas_DistributorId",
                         column: x => x.DistributorId,
                         principalTable: "DistributorDatas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -263,55 +262,53 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TracksToArtists",
+                name: "TrackToArtist",
                 columns: table => new
                 {
+                    TrackId = table.Column<int>(nullable: false),
+                    ArtistId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TrackId = table.Column<int>(nullable: true),
-                    ArtistId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TracksToArtists", x => x.Id);
+                    table.PrimaryKey("PK_TrackToArtist", x => new { x.TrackId, x.ArtistId });
                     table.ForeignKey(
-                        name: "FK_TracksToArtists_ArtistDatas_ArtistId",
+                        name: "FK_TrackToArtist_ArtistDatas_ArtistId",
                         column: x => x.ArtistId,
                         principalTable: "ArtistDatas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TracksToArtists_Tracks_TrackId",
+                        name: "FK_TrackToArtist_Tracks_TrackId",
                         column: x => x.TrackId,
                         principalTable: "Tracks",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TracksToPlaylists",
+                name: "TrackToPlaylist",
                 columns: table => new
                 {
+                    TrackId = table.Column<int>(nullable: false),
+                    PlaylistId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TrackId = table.Column<int>(nullable: true),
-                    PlaylistId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TracksToPlaylists", x => x.Id);
+                    table.PrimaryKey("PK_TrackToPlaylist", x => new { x.TrackId, x.PlaylistId });
                     table.ForeignKey(
-                        name: "FK_TracksToPlaylists_Playlists_PlaylistId",
+                        name: "FK_TrackToPlaylist_Playlists_PlaylistId",
                         column: x => x.PlaylistId,
                         principalTable: "Playlists",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TracksToPlaylists_Tracks_TrackId",
+                        name: "FK_TrackToPlaylist_Tracks_TrackId",
                         column: x => x.TrackId,
                         principalTable: "Tracks",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -335,13 +332,8 @@ namespace Infrastructure.Data.Migrations
                 column: "UserLibraryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ArtistToDistributors_ArtistId",
-                table: "ArtistToDistributors",
-                column: "ArtistId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ArtistToDistributors_DistributorId",
-                table: "ArtistToDistributors",
+                name: "IX_ArtistToDistributor_DistributorId",
+                table: "ArtistToDistributor",
                 column: "DistributorId");
 
             migrationBuilder.CreateIndex(
@@ -365,24 +357,14 @@ namespace Infrastructure.Data.Migrations
                 column: "AlbumId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TracksToArtists_ArtistId",
-                table: "TracksToArtists",
+                name: "IX_TrackToArtist_ArtistId",
+                table: "TrackToArtist",
                 column: "ArtistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TracksToArtists_TrackId",
-                table: "TracksToArtists",
-                column: "TrackId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TracksToPlaylists_PlaylistId",
-                table: "TracksToPlaylists",
+                name: "IX_TrackToPlaylist_PlaylistId",
+                table: "TrackToPlaylist",
                 column: "PlaylistId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TracksToPlaylists_TrackId",
-                table: "TracksToPlaylists",
-                column: "TrackId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_CommonUserDataId",
@@ -403,13 +385,13 @@ namespace Infrastructure.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ArtistToDistributors");
+                name: "ArtistToDistributor");
 
             migrationBuilder.DropTable(
-                name: "TracksToArtists");
+                name: "TrackToArtist");
 
             migrationBuilder.DropTable(
-                name: "TracksToPlaylists");
+                name: "TrackToPlaylist");
 
             migrationBuilder.DropTable(
                 name: "Users");
