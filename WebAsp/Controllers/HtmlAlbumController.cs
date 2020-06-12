@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAsp.Controllers
 {
     [Route("html/[controller]")]
-    public class HtmlGenreController : Controller
+    public class HtmlAlbumController : Controller
     {
-        private IGenreRepository _repository;
+        private IAlbumRepository _repository;
 
-        public HtmlGenreController(IGenreRepository genreRepository)
+        public HtmlAlbumController(IAlbumRepository albumRepository)
         {
-            _repository = genreRepository;
+            _repository = albumRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var tracks = _repository.GetAll();
-            return View(tracks);
+            var albums = _repository.GetAll();
+            return View(albums);
         }
 
         [HttpGet("{id}")]
@@ -27,13 +27,20 @@ namespace WebAsp.Controllers
             return View(_repository.GetById(id));
         }
 
+        [HttpGet("create")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Genre genre)
+        public ActionResult Create([FromForm] Album album)
         {
             try
             {
-                _repository.Add(genre);
+                _repository.Add(album);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,11 +57,11 @@ namespace WebAsp.Controllers
 
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Genre genre)
+        public ActionResult Edit(int id, [FromForm] Album album)
         {
             try
             {
-                _repository.Update(genre);
+                _repository.Update(album);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -67,10 +74,10 @@ namespace WebAsp.Controllers
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
-            Genre genre = _repository.GetById(id);
-            if (genre != null)
+            Album album = _repository.GetById(id);
+            if (album != null)
             {
-                _repository.Remove(genre);
+                _repository.Remove(album);
             }
 
             return RedirectToAction("Index");
