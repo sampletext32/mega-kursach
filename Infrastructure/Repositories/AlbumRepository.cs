@@ -6,7 +6,7 @@ using Infrastructure.IRepositories;
 
 namespace Infrastructure.Repositories
 {
-    public class AlbumRepository : DbRepository<AlbumRepository>, IAlbumRepository
+    public class AlbumRepository : DbRepository<Album>, IAlbumRepository
     {
         public AlbumRepository(AppDbContext dbContext) : base(dbContext)
         {
