@@ -25,7 +25,16 @@ namespace WebAsp
             services.AddControllers().AddNewtonsoftJson();
             services.AddControllersWithViews();
 
+            //services.AddScoped<IAlbumRepository, AlbumRepository>();
+            //services.AddScoped<IArtRepository, ArtRepository>();
+            //services.AddScoped<IArtistDataRepository, ArtistDataRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
+            //services.AddScoped<IDistributorDataRepository, DistributorDataRepository>();
+            //services.AddScoped<IGenreRepository, GenreRepository>();
+            //services.AddScoped<IPlaylistRepository, PlaylistRepository>();
+            //services.AddScoped<ITrackRepository, TrackRepository>();
+            //services.AddScoped<IUserRepository, UserRepository>();
+            //services.AddScoped<IUserLibraryRepository, UserLibraryRepository>();
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MsSqlConnection")));
