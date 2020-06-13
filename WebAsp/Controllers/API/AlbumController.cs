@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAsp.Controllers.API
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class AlbumController : ControllerBase
     {
         private IAlbumRepository _repository;
