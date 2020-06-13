@@ -43,17 +43,17 @@ namespace ConsoleTester
         {
             AppDbContextFactory factory = new AppDbContextFactory();
             _appContext = factory.CreateDbContext(null);
-            //_albumRepository = new AlbumRepository(_appContext);
-            //_artRepository = new ArtRepository(_appContext);
-            //_artistDataRepository = new ArtistDataRepository(_appContext);
-            //_commonUserDataRepository = new CommonUserDataRepository(_appContext);
+            _albumRepository = new AlbumRepository(_appContext);
+            _artRepository = new ArtRepository(_appContext);
+            _artistDataRepository = new ArtistDataRepository(_appContext);
+            _commonUserDataRepository = new CommonUserDataRepository(_appContext);
             _countryRepository = new CountryRepository(_appContext);
-            //_distributorDataRepository = new DistributorDataRepository(_appContext);
-            //_genreRepository = new GenreRepository(_appContext);
-            //_playlistRepository = new PlaylistRepository(_appContext);
-            //_trackRepository = new TrackRepository(_appContext);
-            //_userRepository = new UserRepository(_appContext);
-            //_userLibraryRepository = new UserLibraryRepository(_appContext);
+            _distributorDataRepository = new DistributorDataRepository(_appContext);
+            _genreRepository = new GenreRepository(_appContext);
+            _playlistRepository = new PlaylistRepository(_appContext);
+            _trackRepository = new TrackRepository(_appContext);
+            _userRepository = new UserRepository(_appContext);
+            _userLibraryRepository = new UserLibraryRepository(_appContext);
         }
 
         static void Main(string[] args)
