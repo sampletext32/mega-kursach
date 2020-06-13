@@ -28,3 +28,16 @@ a {
     display: block;
     vertical-align: central
 }
+
+.horizontal-ul {
+    margin: 0 auto; /* Обнуляем значение отступов */
+    display: block; 
+    padding: 4px; /* Значение полей */
+}
+
+.horizontal-li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+    border: 1px solid #000; /* Рамка вокруг текста */
+    padding: 3px; /* Поля вокруг текста */
+}
