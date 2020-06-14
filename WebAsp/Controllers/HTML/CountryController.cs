@@ -14,7 +14,6 @@ namespace WebAsp.Controllers.HTML
             _repository = countryRepository;
         }
 
-        // GET: CountryController
         [HttpGet]
         public ActionResult Index()
         {
@@ -22,21 +21,18 @@ namespace WebAsp.Controllers.HTML
             return View(countries);
         }
 
-        // GET: CountryController/Details/5
         [HttpGet("{id}")]
         public ActionResult Details(int id)
         {
             return View(_repository.GetById(id));
         }
 
-        // GET: CountryController/Create
         [HttpGet("create")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CountryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] Country country)
@@ -49,18 +45,16 @@ namespace WebAsp.Controllers.HTML
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
-        // GET: CountryController/Edit/5
         [HttpGet("edit/{id}")]
         public ActionResult Edit(int id)
         {
             return View(_repository.GetById(id));
         }
 
-        // POST: CountryController/Edit/5
         [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, [FromForm] Country country)
@@ -73,11 +67,10 @@ namespace WebAsp.Controllers.HTML
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
-        // GET: CountryController/Delete/5
         [HttpDelete("delete/{id}")]
         public ActionResult Delete(int id)
         {
@@ -85,9 +78,13 @@ namespace WebAsp.Controllers.HTML
             if (country != null)
             {
                 _repository.Remove(country);
-            }
 
-            return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return new BadRequestResult();
+            }
         }
     }
 }
