@@ -34,11 +34,12 @@ namespace WebAsp.Controllers.HTML
             try
             {
                 _repository.Add(genre);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
@@ -60,7 +61,7 @@ namespace WebAsp.Controllers.HTML
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
@@ -71,9 +72,13 @@ namespace WebAsp.Controllers.HTML
             if (genre != null)
             {
                 _repository.Remove(genre);
-            }
 
-            return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return new BadRequestResult();
+            }
         }
     }
 }

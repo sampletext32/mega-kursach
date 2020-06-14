@@ -45,7 +45,7 @@ namespace WebAsp.Controllers.HTML
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
@@ -67,7 +67,7 @@ namespace WebAsp.Controllers.HTML
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
@@ -78,9 +78,12 @@ namespace WebAsp.Controllers.HTML
             if (album != null)
             {
                 _repository.Remove(album);
+                return RedirectToAction(nameof(Index));
             }
-
-            return RedirectToAction("Index");
+            else
+            {
+                return new BadRequestResult();
+            }
         }
     }
 }

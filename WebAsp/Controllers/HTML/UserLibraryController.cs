@@ -45,7 +45,7 @@ namespace WebAsp.Controllers.HTML
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
@@ -67,7 +67,7 @@ namespace WebAsp.Controllers.HTML
             }
             catch
             {
-                return View();
+                return new BadRequestResult();
             }
         }
 
@@ -78,9 +78,13 @@ namespace WebAsp.Controllers.HTML
             if (library != null)
             {
                 _repository.Remove(library);
-            }
 
-            return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return new BadRequestResult();
+            }
         }
     }
 }

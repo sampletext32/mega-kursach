@@ -78,9 +78,13 @@ namespace WebAsp.Controllers.HTML
             if (artist != null)
             {
                 _repository.Remove(artist);
-            }
 
-            return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return new BadRequestResult();
+            }
         }
     }
 }
