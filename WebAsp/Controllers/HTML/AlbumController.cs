@@ -33,7 +33,7 @@ namespace WebAsp.Controllers.HTML
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] Album album)
         {

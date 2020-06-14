@@ -27,7 +27,7 @@ namespace WebAsp.Controllers.HTML
             return View(_repository.GetById(id));
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] Genre genre)
         {
