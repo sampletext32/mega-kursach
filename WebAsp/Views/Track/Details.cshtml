@@ -25,6 +25,9 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new {Model.Id}) |
+    <audio src="@Html.DisplayFor(model => model.Path)" type="audio/mpeg" controls autoplay></audio>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", Model.Id) |
     <a asp-action="Index">Back to List</a>
 </div>
